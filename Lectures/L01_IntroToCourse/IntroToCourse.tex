@@ -17,6 +17,9 @@
 \urlstyle{same}
 
 \usepackage{booktabs}
+\usepackage{bibentry}
+\usepackage[round, authoryear]{natbib}
+\bibliographystyle{plainnat}
 
 %\usetheme{Iimenau}
 
@@ -33,6 +36,8 @@
 \input{../titlepage}
 
 \begin{document}
+
+\nobibliography{../../ReferenceMaterial/References}
 
 \input{../footline}
 
@@ -155,6 +160,38 @@ logic and discrete mathematics
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
+\frametitle{SE Tools, Techniques and Principles}
+
+\begin{itemize}
+\item Tools
+\bi
+\item Programming languages
+\item Version control software (git, svn, etc)
+\item Debugger
+\item Profiler
+\item ...
+\ei
+\item Techniques
+\bi
+\item Documentation
+\item Testing
+\item Program families
+\item Code generation
+\item ...
+\ei
+\item Principles
+\bi
+\item Information hiding
+\item Least privelege
+\item ...
+\ei
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
 \frametitle{Instructor}
 
 \begin{itemize}
@@ -173,7 +210,7 @@ logic and discrete mathematics
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Introduction of Instructor: Dr.\ Spencer Smith} 
+\frametitle{Introduction: Dr.\ Spencer Smith} 
 \begin{itemize}
  
    \item Associate Professor, Department of Computing and Software.
@@ -374,7 +411,8 @@ the transcript, and/or suspension or expulsion from the university.
 
 \begin {itemize}
 
-\item 
+\item \bibentry{Smith2016}
+\item \bibentry{SmithEtAl2007}
 
 \end{itemize}
 
