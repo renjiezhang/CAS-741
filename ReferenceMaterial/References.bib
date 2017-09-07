@@ -2,12 +2,124 @@
 %% http://bibdesk.sourceforge.net/
 
 
-%% Created for Spencer Smith at 2017-09-04 23:02:48 -0400 
+%% Created for Spencer Smith at 2017-09-07 14:15:00 -0400 
 
 
 %% Saved with string encoding Unicode (UTF-8) 
 
 
+
+@article{TaschukAndWilson2017,
+	Abstract = {{[Abstract]
+
+Software produced for research, published and otherwise, suffers from a number of common problems that make it difficult or impossible to run outside the original institution or even off the primary developer's computer. We present ten simple rules to make such software robust enough to be run by anyone, anywhere, and thereby delight your users and collaborators.
+
+[Author summary]
+
+Many researchers have found out the hard way that there's a world of difference between  '' works for me on my machine'' and  '' works for other people on theirs.'' Many common challenges can be avoided by following a few simple rules; doing so not only improves reproducibility but can accelerate research.
+
+[Excerpt]
+[\n] [...]
+Best practices in software engineering specifically aim to increase software robustness. However, most bioinformaticians learn what they know about software development on the job or otherwise informally [...]. Existing training programs and initiatives rarely have the time to cover software engineering in depth, especially since the field is so broad and developing so rapidly [...]. In addition, making software robust is not directly rewarded in science, and funding is difficult to come by [...]. Some proposed solutions to this problem include restructuring educational programs, hiring dedicated software engineers [...], partnering with private sector or grassroots organizations [...], or using specific technical tools like containerization or cloud computing [...]. Each of these requires time and, in some cases, institutional change.
+
+[\n] The good news is you don't need to be a professionally trained programmer to write robust software. In fact, some of the best, most reliable pieces of software in many scientific communities are written by researchers [...] who have adopted strong software engineering approaches, have high standards of reproducibility, use good testing practices, and foster strong user bases through constantly evolving, clearly documented, useful, and useable software.
+[...]
+
+[\n] So what is  '' robust'' software? We implied above that it is software that works for people other than the original author and on machines other than its creator's. More specifically, we mean that:
+
+[::] it can be installed on more than one computer with relative ease,
+[::] it works consistently as advertised, and
+[::] it can be integrated with other tools.
+
+[\n] Our rules are generic and can be applied to all languages, libraries, packages, documentation styles, and operating systems for both closed-source and open-source software. They are also necessary steps toward making computational research replicable and reproducible: after all, if your tools and libraries cannot be run by others, they cannot be used to verify your results or as a stepping stone for future work [...]
+
+[::] Rule 1: Use version control [...]
+[::] Rule 2: Document your code and usage [...]
+[::] Rule 3: Make common operations easy to control [...]
+[::] Rule 4: Version your releases [...]
+[::] Rule 5: Reuse software (within reason) [...]
+[::] Rule 6: Rely on build tools and package managers for installation [...]
+[::] Rule 7: Do not require root or other special privileges to install or run [...]
+[::] Rule 8: Eliminate hard-coded paths [...]
+[::] Rule 9: Include a small test set that can be run to ensure the software is actually working [...]
+[::] Rule 10: Produce identical results when given identical inputs [...]
+[\n] [...]}},
+	Author = {Taschuk, Morgan and Wilson, Greg},
+	Citeulike-Article-Id = {14337051},
+	Citeulike-Linkout-0 = {http://mfkp.org/INRMM/article/14337051},
+	Citeulike-Linkout-1 = {https://scholar.google.com/scholar?cluster=6425036906123073798},
+	Citeulike-Linkout-2 = {http://dx.doi.org/10.1371/journal.pcbi.1005412},
+	Date-Added = {2017-09-07 18:14:58 +0000},
+	Date-Modified = {2017-09-07 18:14:58 +0000},
+	Day = {13},
+	Doi = {10.1371/journal.pcbi.1005412},
+	Issn = {1553-7358},
+	Journal = {PLOS Computational Biology},
+	Keywords = {bias-disembodied-science-vs-computational-scholarship, check-list, computational-science, free-scientific-knowledge, reproducible-research, software-engineering, software-uncertainty},
+	Month = apr,
+	Number = {4},
+	Pages = {e1005412+},
+	Posted-At = {2017-04-19 10:44:23},
+	Priority = {2},
+	Publisher = {Public Library of Science},
+	Title = {{Ten simple rules for making research software more robust}},
+	Url = {http://mfkp.org/INRMM/article/14337051},
+	Volume = {13},
+	Year = {2017},
+	Bdsk-File-1 = {YnBsaXN0MDDUAQIDBAUGJCVYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoKgHCBMUFRYaIVUkbnVsbNMJCgsMDxJXTlMua2V5c1pOUy5vYmplY3RzViRjbGFzc6INDoACgAOiEBGABIAFgAdccmVsYXRpdmVQYXRoWWFsaWFzRGF0YV8QPC4uLy4uL3NlNHNjL1NjaUNvbXBBbmRTb2Z0RW5nUGFwZXJzL1Rhc2NodWtBbmRXaWxzb24yMDE3LnBkZtIXCxgZV05TLmRhdGFPEQH0AAAAAAH0AAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAAAAAAAADOl3ODSCsAAAkx/Q0YVGFzY2h1a0FuZFdpbHNvbjIwMTcucGRmAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADh9bJNQvCsgAAAAAAAAAAAACAAMAAAkgAAAAAAAAAAAAAAAAAAAAF1NjaUNvbXBBbmRTb2Z0RW5nUGFwZXJzAAAQAAgAAM6Xq8MAAAARAAgAANQvQwgAAAABABQJMf0NCTHuxwASFacACPdmAAJkjgACAFtNYWNpbnRvc2ggSEQ6VXNlcnM6AHNtaXRoczoAUmVwb3M6AHNlNHNjOgBTY2lDb21wQW5kU29mdEVuZ1BhcGVyczoAVGFzY2h1a0FuZFdpbHNvbjIwMTcucGRmAAAOADIAGABUAGEAcwBjAGgAdQBrAEEAbgBkAFcAaQBsAHMAbwBuADIAMAAxADcALgBwAGQAZgAPABoADABNAGEAYwBpAG4AdABvAHMAaAAgAEgARAASAElVc2Vycy9zbWl0aHMvUmVwb3Mvc2U0c2MvU2NpQ29tcEFuZFNvZnRFbmdQYXBlcnMvVGFzY2h1a0FuZFdpbHNvbjIwMTcucGRmAAATAAEvAAAVAAIADf//AACABtIbHB0eWiRjbGFzc25hbWVYJGNsYXNzZXNdTlNNdXRhYmxlRGF0YaMdHyBWTlNEYXRhWE5TT2JqZWN00hscIiNcTlNEaWN0aW9uYXJ5oiIgXxAPTlNLZXllZEFyY2hpdmVy0SYnVHJvb3SAAQAIABEAGgAjAC0AMgA3AEAARgBNAFUAYABnAGoAbABuAHEAcwB1AHcAhACOAM0A0gDaAtIC1ALZAuQC7QL7Av8DBgMPAxQDIQMkAzYDOQM+AAAAAAAAAgEAAAAAAAAAKAAAAAAAAAAAAAAAAAAAA0A=},
+	Bdsk-Url-1 = {http://mfkp.org/INRMM/article/14337051},
+	Bdsk-Url-2 = {http://dx.doi.org/10.1371/journal.pcbi.1005412}}
+
+@article{WilsonEtAl2016,
+	Author = {Greg Wilson and Jennifer Bryan and Karen Cranston and Justin Kitzes and Lex Nederbragt and Tracy K. Teal},
+	Bibsource = {dblp computer science bibliography, http://dblp.org},
+	Biburl = {http://dblp.uni-trier.de/rec/bib/journals/corr/WilsonBCKNT16},
+	Date-Added = {2017-09-07 18:14:51 +0000},
+	Date-Modified = {2017-09-07 18:14:51 +0000},
+	Journal = {CoRR},
+	Timestamp = {Wed, 07 Jun 2017 14:42:20 +0200},
+	Title = {Good Enough Practices in Scientific Computing},
+	Url = {http://arxiv.org/abs/1609.00037},
+	Volume = {abs/1609.00037},
+	Year = {2016},
+	Bdsk-File-1 = {YnBsaXN0MDDUAQIDBAUGJCVYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoKgHCBMUFRYaIVUkbnVsbNMJCgsMDxJXTlMua2V5c1pOUy5vYmplY3RzViRjbGFzc6INDoACgAOiEBGABIAFgAdccmVsYXRpdmVQYXRoWWFsaWFzRGF0YV8QNi4uLy4uL3NlNHNjL1NjaUNvbXBBbmRTb2Z0RW5nUGFwZXJzL1dpbHNvbkV0QWwyMDE2LnBkZtIXCxgZV05TLmRhdGFPEQHcAAAAAAHcAAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAAAAAAAADOl3ODSCsAAAkx/Q0SV2lsc29uRXRBbDIwMTYucGRmAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADh9bJdQvCpQAAAAAAAAAAAACAAMAAAkgAAAAAAAAAAAAAAAAAAAAF1NjaUNvbXBBbmRTb2Z0RW5nUGFwZXJzAAAQAAgAAM6Xq8MAAAARAAgAANQvQtQAAAABABQJMf0NCTHuxwASFacACPdmAAJkjgACAFVNYWNpbnRvc2ggSEQ6VXNlcnM6AHNtaXRoczoAUmVwb3M6AHNlNHNjOgBTY2lDb21wQW5kU29mdEVuZ1BhcGVyczoAV2lsc29uRXRBbDIwMTYucGRmAAAOACYAEgBXAGkAbABzAG8AbgBFAHQAQQBsADIAMAAxADYALgBwAGQAZgAPABoADABNAGEAYwBpAG4AdABvAHMAaAAgAEgARAASAENVc2Vycy9zbWl0aHMvUmVwb3Mvc2U0c2MvU2NpQ29tcEFuZFNvZnRFbmdQYXBlcnMvV2lsc29uRXRBbDIwMTYucGRmAAATAAEvAAAVAAIADf//AACABtIbHB0eWiRjbGFzc25hbWVYJGNsYXNzZXNdTlNNdXRhYmxlRGF0YaMdHyBWTlNEYXRhWE5TT2JqZWN00hscIiNcTlNEaWN0aW9uYXJ5oiIgXxAPTlNLZXllZEFyY2hpdmVy0SYnVHJvb3SAAQAIABEAGgAjAC0AMgA3AEAARgBNAFUAYABnAGoAbABuAHEAcwB1AHcAhACOAMcAzADUArQCtgK7AsYCzwLdAuEC6ALxAvYDAwMGAxgDGwMgAAAAAAAAAgEAAAAAAAAAKAAAAAAAAAAAAAAAAAAAAyI=},
+	Bdsk-Url-1 = {http://arxiv.org/abs/1609.00037}}
+
+@inbook{RobertsonAndRobertson2012,
+	Author = {James Robertson and Suzanne Robertson},
+	Date-Added = {2017-09-07 18:01:08 +0000},
+	Date-Modified = {2017-09-07 18:01:08 +0000},
+	Editor = {16},
+	Publisher = {Atlantic Systems Guild Limited},
+	Title = {Volere Requirements Specification Template},
+	Year = {2012},
+	Bdsk-File-1 = {YnBsaXN0MDDUAQIDBAUGJCVYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoKgHCBMUFRYaIVUkbnVsbNMJCgsMDxJXTlMua2V5c1pOUy5vYmplY3RzViRjbGFzc6INDoACgAOiEBGABIAFgAdccmVsYXRpdmVQYXRoWWFsaWFzRGF0YV8QNC4uLy4uL3NlM3hhMy9SZWZlcmVuY2VNYXRlcmlhbC9Wb2xlcmUgdGVtcGxhdGUxNi5kb2PSFwsYGVdOUy5kYXRhTxEB2AAAAAAB2AACAAAMTWFjaW50b3NoIEhEAAAAAAAAAAAAAAAAAAAAzpdzg0grAAAJx7rFFVZvbGVyZSB0ZW1wbGF0ZTE2LmRvYwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnXaxbUCZVyAAAAAAAAAAAAAgADAAAJIAAAAAAAAAAAAAAAAAAAABFSZWZlcmVuY2VNYXRlcmlhbAAAEAAIAADOl6vDAAAAEQAIAADUCc2yAAAAAQAUCce6xQnGBjMAEhWnAAj3ZgACZI4AAgBTTWFjaW50b3NoIEhEOlVzZXJzOgBzbWl0aHM6AFJlcG9zOgBzZTN4YTM6AFJlZmVyZW5jZU1hdGVyaWFsOgBWb2xlcmUgdGVtcGxhdGUxNi5kb2MAAA4ALAAVAFYAbwBsAGUAcgBlACAAdABlAG0AcABsAGEAdABlADEANgAuAGQAbwBjAA8AGgAMAE0AYQBjAGkAbgB0AG8AcwBoACAASABEABIAQVVzZXJzL3NtaXRocy9SZXBvcy9zZTN4YTMvUmVmZXJlbmNlTWF0ZXJpYWwvVm9sZXJlIHRlbXBsYXRlMTYuZG9jAAATAAEvAAAVAAIADf//AACABtIbHB0eWiRjbGFzc25hbWVYJGNsYXNzZXNdTlNNdXRhYmxlRGF0YaMdHyBWTlNEYXRhWE5TT2JqZWN00hscIiNcTlNEaWN0aW9uYXJ5oiIgXxAPTlNLZXllZEFyY2hpdmVy0SYnVHJvb3SAAQAIABEAGgAjAC0AMgA3AEAARgBNAFUAYABnAGoAbABuAHEAcwB1AHcAhACOAMUAygDSAq4CsAK1AsACyQLXAtsC4gLrAvAC/QMAAxIDFQMaAAAAAAAAAgEAAAAAAAAAKAAAAAAAAAAAAAAAAAAAAxw=}}
+
+@book{HoffmanAndStrooper1995,
+	Address = {New York, NY, USA},
+	Author = {Daniel M. Hoffman and Paul A. Strooper},
+	Date-Added = {2017-09-07 18:01:05 +0000},
+	Date-Modified = {2017-09-07 18:01:05 +0000},
+	Local-Url = {file://localhost/Users/smiths/LongTermArchives/Work/Research/References/SoftwareEngineering/software-design-automated-testing.pdf},
+	Publisher = {International Thomson Computer Press},
+	Title = {Software Design, Automated Testing, and Maintenance: A Practical Approach},
+	Url = {http:// citeseer.ist.psu.edu/428727.html},
+	Year = {1995},
+	Bdsk-File-1 = {YnBsaXN0MDDUAQIDBAUGJCVYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoKgHCBMUFRYaIVUkbnVsbNMJCgsMDxJXTlMua2V5c1pOUy5vYmplY3RzViRjbGFzc6INDoACgAOiEBGABIAFgAdccmVsYXRpdmVQYXRoWWFsaWFzRGF0YV8QOS4uLy4uL3NlM3hhMy9SZWZlcmVuY2VNYXRlcmlhbC9Ib2ZmbWFuQW5kU3Ryb29wZXIxOTk1LnBkZtIXCxgZV05TLmRhdGFPEQHqAAAAAAHqAAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAAAAAAAADOl3ODSCsAAAnHusUaSG9mZm1hbkFuZFN0cm9vcGVyMTk5NS5wZGYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgYWv9Q41tAAAAAAAAAAAAACAAMAAAkgAAAAAAAAAAAAAAAAAAAAEVJlZmVyZW5jZU1hdGVyaWFsAAAQAAgAAM6Xq8MAAAARAAgAANQ5DxAAAAABABQJx7rFCcYGMwASFacACPdmAAJkjgACAFhNYWNpbnRvc2ggSEQ6VXNlcnM6AHNtaXRoczoAUmVwb3M6AHNlM3hhMzoAUmVmZXJlbmNlTWF0ZXJpYWw6AEhvZmZtYW5BbmRTdHJvb3BlcjE5OTUucGRmAA4ANgAaAEgAbwBmAGYAbQBhAG4AQQBuAGQAUwB0AHIAbwBvAHAAZQByADEAOQA5ADUALgBwAGQAZgAPABoADABNAGEAYwBpAG4AdABvAHMAaAAgAEgARAASAEZVc2Vycy9zbWl0aHMvUmVwb3Mvc2UzeGEzL1JlZmVyZW5jZU1hdGVyaWFsL0hvZmZtYW5BbmRTdHJvb3BlcjE5OTUucGRmABMAAS8AABUAAgAN//8AAIAG0hscHR5aJGNsYXNzbmFtZVgkY2xhc3Nlc11OU011dGFibGVEYXRhox0fIFZOU0RhdGFYTlNPYmplY3TSGxwiI1xOU0RpY3Rpb25hcnmiIiBfEA9OU0tleWVkQXJjaGl2ZXLRJidUcm9vdIABAAgAEQAaACMALQAyADcAQABGAE0AVQBgAGcAagBsAG4AcQBzAHUAdwCEAI4AygDPANcCxQLHAswC1wLgAu4C8gL5AwIDBwMUAxcDKQMsAzEAAAAAAAACAQAAAAAAAAAoAAAAAAAAAAAAAAAAAAADMw==},
+	Bdsk-Url-1 = {http://%20citeseer.ist.psu.edu/428727.html}}
+
+@article{Parnas1972a,
+	Author = {David L. Parnas},
+	Date-Added = {2017-09-07 18:01:00 +0000},
+	Date-Modified = {2017-09-07 18:01:00 +0000},
+	Journal = {Comm. ACM},
+	Month = {December},
+	Number = {2},
+	Pages = {1053--1058},
+	Title = {On the Criteria To Be Used in Decomposing Systems into Modules},
+	Volume = {15},
+	Year = {1972},
+	Bdsk-File-1 = {YnBsaXN0MDDUAQIDBAUGJCVYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoKgHCBMUFRYaIVUkbnVsbNMJCgsMDxJXTlMua2V5c1pOUy5vYmplY3RzViRjbGFzc6INDoACgAOiEBGABIAFgAdccmVsYXRpdmVQYXRoWWFsaWFzRGF0YV8QMC4uLy4uLy4uL1dvcmsvUmVzZWFyY2gvUmVmZXJlbmNlcy9QYXJuYXMxOTcyLnBkZtIXCxgZV05TLmRhdGFPEQGmAAAAAAGmAAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAAAAAAAADOl3ODSCsAAAAXAgwOUGFybmFzMTk3Mi5wZGYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3+xs9CaVP4AAAAAAAAAAAADAAQAAAkgAAAAAAAAAAAAAAAAAAAAClJlZmVyZW5jZXMAEAAIAADOl6vDAAAAEQAIAADQmptOAAAAAQAUABcCDAAXAE0AFv3tAAj3ZgACZI4AAgBGTWFjaW50b3NoIEhEOlVzZXJzOgBzbWl0aHM6AFdvcms6AFJlc2VhcmNoOgBSZWZlcmVuY2VzOgBQYXJuYXMxOTcyLnBkZgAOAB4ADgBQAGEAcgBuAGEAcwAxADkANwAyAC4AcABkAGYADwAaAAwATQBhAGMAaQBuAHQAbwBzAGgAIABIAEQAEgA0VXNlcnMvc21pdGhzL1dvcmsvUmVzZWFyY2gvUmVmZXJlbmNlcy9QYXJuYXMxOTcyLnBkZgATAAEvAAAVAAIADf//AACABtIbHB0eWiRjbGFzc25hbWVYJGNsYXNzZXNdTlNNdXRhYmxlRGF0YaMdHyBWTlNEYXRhWE5TT2JqZWN00hscIiNcTlNEaWN0aW9uYXJ5oiIgXxAPTlNLZXllZEFyY2hpdmVy0SYnVHJvb3SAAQAIABEAGgAjAC0AMgA3AEAARgBNAFUAYABnAGoAbABuAHEAcwB1AHcAhACOAMEAxgDOAngCegJ/AooCkwKhAqUCrAK1AroCxwLKAtwC3wLkAAAAAAAAAgEAAAAAAAAAKAAAAAAAAAAAAAAAAAAAAuY=}}
 
 @article{SmithEtAl2007,
 	Author = {W. Spencer Smith and Lei Lai and Ridha Khedri},
