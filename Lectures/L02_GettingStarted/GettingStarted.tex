@@ -22,7 +22,12 @@
 \usepackage{multicol}
 \usepackage{array}
 
-\bibliographystyle{plainnat}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+%\usepackage{natbib} %doesn't seem to work with beamer
+\bibliographystyle{plain}
+%\setcitestyle{authoryear}
 
 %\usetheme{Iimenau}
 
@@ -34,39 +39,33 @@
 
 \input{../def-beamer}
 
-\newcommand{\topic}{02 Requirements}
+\newcommand{\topic}{02 Getting Started}
 
 \input{../titlepage}
 
 \begin{document}
 
+%\nobibliography{../../ReferenceMaterial/References}
+
 \input{../footline}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Requirements}
+\frametitle{Getting Started}
 
 \bi
 \item LiCS overview by Dan
 \item Administrative details
+\item Questions on suggested reading?
 \item Project choices
 \item Software tools
-\item Motivation
-\begin{itemize}
-\item Scientific Computing Software Qualities
-\item Challenges to Developing Quality Scientific Software
-\end{itemize}
-\item Requirements documentation for scientific computing
-\item A new requirements template
-\item Advantages of new template and examples
-\item The new template from a software engineering perspective
-\item Concluding remarks
-\item References
+\item Software Engineering for Scientific Computing literature
 \ei
+
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
 \frametitle{Administrative Details}
@@ -74,12 +73,27 @@
 \bi
 \item Benches and white boards
 \item Use folder structure given in repo
+\item Post any questions as issues in our repo
 \item Problem statement due Friday, Sept 15 by 11:59 pm
 \ei
 
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Benches and Glassboards}
+
+\begin{tikzpicture}[remember picture,overlay]
+\node [xshift=0cm,yshift=0.15cm] at (current page.center)
+{
+\includegraphics[width=0.5\textwidth]{../Figures/GlassBoards.jpg}
+};
+\end{tikzpicture}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
 \frametitle{Administrative Details: Grade Assessment}
@@ -107,7 +121,7 @@
 
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
 \frametitle{Administrative Details: Report Deadlines}
@@ -130,7 +144,7 @@ Final Documentation & Week 13 & Dec 6\\
 
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
 \frametitle{Administrative Details: Presentations}
@@ -153,7 +167,21 @@ Implementation Present & Week 12 & Week of Nov 27\\
 
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Questions on Suggested Reading?}
+
+\begin {itemize}
+
+\item \href{https://gitlab.cas.mcmaster.ca/smiths/cas741/blob/master/ReferenceMaterial/SoftEngForScienceBook.pdf}{Smith2016~\cite{Smith2016}}
+\item \href{https://gitlab.cas.mcmaster.ca/smiths/cas741/blob/master/ReferenceMaterial/SmithLaiAndKhedri2007fulltext.pdf}{SmithEtAl2007~\cite{SmithEtAl2007}}
+
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
 \frametitle{Project Selection: Desired Qualities}
@@ -169,7 +197,7 @@ Implementation Present & Week 12 & Week of Nov 27\\
 \end{itemize}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
 \frametitle{Project Selection: Specific Physical Problem}
@@ -193,760 +221,180 @@ Implementation Present & Week 12 & Week of Nov 27\\
 
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
 \frametitle{Project Selection: Family of General Purpose Tools}
 \begin{itemize}
-\item Solution of ODEs
-\item Solution of $A x = b$
-\item Regression
-\item Interpolation
-\item Numerical integration
-\item FFT
-\item Mesh generation
-\item Finite element method
+\item \href{https://en.wikipedia.org/wiki/Numerical_methods_for_ordinary_differential_equations}{Solution of ODEs}
+\item \href{https://en.wikibooks.org/wiki/Numerical_Methods/Solution_of_Linear_Equation_Systems}{Solution of $A x = b$}
+\item \href{https://en.wikipedia.org/wiki/Linear_regression}{Regression}
+\item \href{https://en.wikibooks.org/wiki/Introduction_to_Numerical_Methods/Interpolation}{Interpolation}
+\item \href{https://en.wikipedia.org/wiki/Numerical_integration}{Numerical integration}
+\item \href{https://en.wikipedia.org/wiki/Fast_Fourier_transform}{FFT}
+\item \href{https://en.wikipedia.org/wiki/Mesh_generation}{Mesh generation}
+\item \href{https://en.wikipedia.org/wiki/Finite_element_method}{Finite element method}
 \item Any chapter from a standard numerical methods textbook
 \item etc.
 \end{itemize}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
 \frametitle{Tool Tutorials}
 \begin{itemize}
-\item point to repo
-\item Learn by doing
+\item Best way to learn is by doing
+\item Some getting started information and exercises in the ToolTutorials
+  folder, modified from undergrad classes
+\item Many other resources on-line
+\item Your colleagues can help too
 \end{itemize}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Git and GitLab}
+\frametitle{Git, GitLab and GitHub}
 \begin{itemize}
-\item point to repo
-\item Learn by doing
+\item Git manages changes to documents
+\bi
+\item Tracks changes
+\item Keeps history, you can roll back
+\item Useful documentation over time
+\item Allows people to work simultaneously
+\ei
+\item Benefits for SC \cite{WilsonEtAl2016}
+\bi
+\item Not necessary to make a backup copy of everything, stores just enough
+  information to recreate
+\item Do not need to come up with names for backup copies - same file name, but
+  with timestamps
+\item Enforces changelog discipline
+\item Facilitates identifying conflict and merging changes
+\ei
+\item The real bottleneck in scientific computing~\cite{Wilson2006}
 \end{itemize}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Git Typical Usage}
+
+First either init repo or clone (git init, git clone), then typical workflow is
+\be
+\item update repo (git pull)
+\item create files
+\item stage changes to be committed (git status, git add)
+\item commit staged changes (git commit -m ``message'')
+\item push to remote, if using one (git push)
+\ee
+\bi
+\item Commit after every separate issue, and when need to stop working
+\item Always include a meaningful and descriptive commit message for the log
+\item If a push reveals conflicts, take appropriate action to merge
+\ei
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{GitLab and GitHub Issue Tracking}
+
+\bi
+\item See brief document in course repo
+\item \href{https://github.com/JacquesCarette/literate-scientific-software/issues}{See
+  examples}
+\item Create an issue
+\ei
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
 \frametitle{LaTeX}
 \begin{itemize}
-\item point to repo
-\item Learn by doing
+\item A typesetting language
+\item Some initial information in course repo
+\item Start from an example
+\bi
+\item The lectures notes
+\item The Blank Project Template
+\item The problem statement
+\ei
 \end{itemize}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
+\frametitle{SE For SC Literature}
 
-\frametitle{Important Qualities for Scientific Computing Software}
+\begin {itemize}
 
-\begin{itemize}
-
-\item External qualities
-\begin{itemize}
-\item Correctness (Thou shalt not lie)
-\item Reliability
-\item Robustness
-\item Performance
-\begin{itemize}
-%\item Tight bounds
-\item Time efficiency
-\item Space efficiency
-\end{itemize}
-\end{itemize}
-
-\item Internal qualities
-\begin{itemize}
-\item Verifiability
-%\item Productivity
-\item Usability
-\item Maintainability
-%\begin{itemize}
-%\item Repairability
-%\item Evolvability
-%\end{itemize}
-\item Reusability
-\item Portability
-\end{itemize}
-
+\item CAS 741 process is document driven, adapted
+from the waterfall model~\cite{GhezziEtAl2003, VanVliet2000}
+\item Many say a document driven process is not used by, nor suitable for,
+scientific software.
+\bi
+\item Scientific developers naturally use an agile
+  philosophy~\cite{AckroydEtAl2008, CarverEtAl2007, EasterbrookAndJohns2009, Segal2005}, 
+\item or an amethododical process~\cite{Kelly2013}
+\item or a knowledge acquisition driven process~\cite{Kelly2015}.
+\ei
+\item Scientists do not view rigid, process-heavy approaches,
+  favorably~\cite{CarverEtAl2007}
+\item Reports for each stage of development are counterproductive~\cite[p.~373]{Roache1998}
+\item Up-front requirements are
+impossible~\cite{CarverEtAl2007, SegalAndMorris2008}
+\item \structure{What are some arguments in favour of a rational document driven
+    process?}
 \end{itemize}
 
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
+\frametitle{Counter Arguments}
 
-\frametitle{Problems with Developing Quality Scientific Computing Software}
+\begin {itemize}
 
-\begin{itemize}
-
-\item Need to know requirements to judge reliability
-\item In many cases the only documentation is the code
-\item Reuse is not as common as it could be
-\begin{itemize}
-\item \href{http://www.andrew.cmu.edu/user/sowen/softsurv.html}{\alert{Meshing software survey}}
-\item \href{http://www.engr.usask.ca/~macphed/finite/fe_resources/node137.html}{\alert{Public domain finite element
-programs}}
-\item etc.
-\end{itemize}
-\item Many people develop ``from scratch''
-\item Cannot easily reproduce the work of others
-\item Neglect of simple software development technology~\cite{Wilson2006} 
-% such as version control software
-
-\end{itemize}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-
-\frametitle{Adapt Software Engineering Methodologies}
-
-\begin{itemize}
-
-\item Software engineering improves and quantifies quality %purpose of software engineering
-\item Successfully applied in other domains
-\begin{itemize}
-\item Business and information systems
-\item Embedded real time systems
-\end{itemize}
-\item Systematic engineering process
-\item Design through documentation
-\item Use of mathematics
-\item Reuse of components
-\item Warranty rather than a disclaimer %goal of software engineering
-
+\item Just because document driven is not used, does not mean it will not work
+\item Documentation provides many
+benefits~\cite{Parnas2010}: 
+\bi
+\item easier reuse of old designs
+\item better communication about requirements
+\item more useful design reviews
+\item easier integration of separately
+written modules
+\item more effective code inspection
+\item more effective testing
+\item more efficient corrections and improvements.
+\ei
+\item Actually faking a rational design process
+\item Too complex for up-front requirements sounds like an excuse
+\bi
+\item Laws of physics/science slow to change
+\item Often simple design patterns
+\item Think program family, not individual member
+\ei
 \end{itemize}
 
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-
-\frametitle{Developing Scientific Computing Software}
-
-\begin{itemize}
-
-\item Facilitators
-\begin{itemize}
-\item One user viewpoint for specifying a physical model
-\item Assumptions can be used to distinguish models
-\item High potential for reuse
-\item Libraries
-\item Already mathematical
-\end{itemize}
-
-\item Challenges
-\begin{itemize}
-\item Verification and Validation
-\item Acceptance of software engineering methodologies
-\item No existing templates or examples %explain that templates are a tool for doc req.
-\end{itemize}
-
-\end{itemize}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Outline of Discussion of Requirements}
-
-\begin{itemize}
-
-\item Background on requirements elicitation, analysis and documentation
-\item Tabular expressions
-\item Why requirements analysis for engineering computation?
-
-\item System Requirements Specification and template for beam analysis software
-\begin{itemize}
-\item Provides guidelines
-\item Eases transition from general to specific
-\item Catalyses early consideration of design
-\item Reduces ambiguity
-\item Identifies range of model applicability
-\item Clear documentation of assumptions
-\end{itemize}
-
-\end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{A Rational Design Process}
-%\begin{figure}
-\begin{center}
- \includegraphics[width=1.0\textwidth]{../Figures/reqSE.pdf}
-\end{center}
-%\end{figure}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Sometimes Include Commonality Analysis}
-%\begin{figure}
-\begin{center}
- \includegraphics[width=1.0\textwidth]{../Figures/Waterfall.pdf}
-\end{center}
-%\end{figure}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Software Requirements Activities}
-\begin{itemize}
-\item A software requirement is a description of how the system should behave, or of a system property or attribute
-\item Requirements should be unambiguous, complete, consistent, modifiable, verifiable and traceable
-\item Requirements should express ``What'' not ``How''
-\item Formal versus informal specification
-\item Functional versus nonfunctional requirements
-\item Software requirements specification (SRS)
-\item Requirements template
-\end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Tabular Expressions}
-
-\begin{flushleft}
-\scalebox{0.75}{
-\begin{tabular}{||r|p{6cm}||}
-\hhline{=|=}
-Composition rule & $\cup_{i=1}^{4} H_2[i] \cap  (\cap_{j=1}^{2} H_1[j] ~;~ G[i,j])$ \\
-\hhline{=|=}
-\end{tabular}
-}
-\end{flushleft}
-
-%\begin{center}
-\begin{tabular}{|l|p{0.3cm}|l|l|}
-\multicolumn{4}{c}{} \\
-\multicolumn{2}{c}{} & \multicolumn{2}{>{\large}c}{$H_1$} \\
-\hhline{|~|~|-|-|}
-\multicolumn{2}{c|}{} & $S_{GET}'\cup =$ & $ErrorMsg'+=$ \\
-\hhline{|~|~|-|-|}
-\multicolumn{4}{c}{} \\
-\hhline{|-|~|-|-|}
-$x_1 < 0$ & & $\emptyset$ & $InvalidInput\_x_1$  \\
-\hhline{|-|~|-|-|}
-$0 \le x_1 < min_d$ & & $\emptyset$ & $x_1\_TooSmall$ \\
-\hhline{|-|~|-|-|}
-$x_1 > max_d$ & & $\emptyset$ & $x_1\_TooLarge$ \\
-\hhline{|-|~|-|-|}
-$min_d \le x_1 \le max_d$ & & $\{@{x_1}\}$ & $NULL$ \\
-\hhline{|-|~|-|-|}
-\multicolumn{2}{c}{} & \multicolumn{2}{r}{$\land ChangeOnly(S_{GET}, ErrorMsg)$}\\
-\multicolumn{2}{>{\large}c}{$H_2$} & \multicolumn{2}{>{\large}c}{$G$} \\
-\end{tabular}
-%\end{center}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Why Requirements Analysis?}
-%\begin{figure}
-\begin{center}
- \includegraphics[width=1.0\textwidth]{../Figures/StagesInSciCompErrors.pdf}
-\end{center}
-%\end{figure}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Beam Analysis Software}
-~\newline
-~\newline
-\begin{center}
- \includegraphics[width=1.0\textwidth]{../Figures/beamFBD.pdf}
-\end{center}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Proposed Template}
-
-\scalebox{0.85}{
-\begin{minipage}{1.2\textwidth}
-\begin{enumerate}
-
-\item Reference Material: a) Table of Symbols ...
-
-\item Introduction: a) Purpose of the Document; b) Scope of the Software Product; c) Organization of the Document.
-
-\item General System Description: a) System Context; b) User Characteristics; c) System Constraints.
-
-\item Specific System Description:
-\begin{enumerate}
-\item Problem Description: i) Background Overview ...
-\item Solution specification: i) Assumptions; ii) Theoretical Models; ...
-\item Non-functional Requirements: i) Accuracy of Input Data; ii) Sensitivity ...
-\end{enumerate}
-
-\item{Traceability Matrix}
-
-\item List of Possible Changes in the Requirements
-
-\item{Values of Auxiliary Constants}
-
-\end{enumerate}
-\end{minipage}
-}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Provides Guidance}
-\begin{itemize}
-\item Details will not be overlooked, facilitates multidisciplinary collaboration
-\item Encourages a systematic process
-\item Acts as a checklist
-\item Separation of concerns
-\begin{itemize}
-\item Discuss purpose separately from organization
-\item Functional requirements separate from non-functional
-%\begin{itemize}
-%\item solve for forces
-%\item system responds within 1 second
-%\end{itemize}
-\end{itemize}
-\item Labels for cross-referencing
-\begin{itemize}
-\item Sections, physical system description, goal statements, assumptions, etc.
-\item PS1.a ``the shape of the beam is long and thin''
-\end{itemize}
-%\item Use of parameters instead of explicit values
-\end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Eases Transition from General to Specific}
-\begin{itemize}
-\item ``Big picture'' first followed by details
-\item Facilitates reuse
-\item ``Introduction'' to ``General System Description'' to ``Specific System Description''
-\item Refinement of abstract goals to theoretical model to instanced model
-\begin{itemize}
-\item \textbf{G1}. Solve for the unknown external forces applied to the beam
-\item $ \textbf{T1}~ 
-\textrm{$\sum{F_{xi}} = 0$,}~  
-\textrm{$\sum{F_{yi}} = 0$,}~
-\textrm{$\sum{M_i} = 0$}$
-\item \textbf{M1} \textrm{$F_{ax} - F_1\cdot \cos\theta_3 - F_2\cdot \cos\theta_4 - F_{bx} = 0$}
-\end{itemize}
-\end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Ensures Special Cases are Considered}
-\scalebox{0.6}{
-\begin{tabular}{| p{3.8cm} | p{1.7cm} | p{0.05cm} | p{9.0cm} | p{1.8cm} |}
-\multicolumn{3}{c}{} & \multicolumn{2}{>{\large}c}{$H_1$} \\
-\hhline{|~|~|~|-|-|}
-\multicolumn{3}{c}{} & \multicolumn{1}{|c|}{$S_{GET} = S_{sym} - S_{unkF}$} & $S_{GET} \ne  (S_{sym} - S_{unkF})$ \\
-\hhline{|~|~|~|-|-|}
-
-\hhline{|-|-|~|-|-|} $S_{unkF} \notin \mathbb{P}_3$ & - &  & $(ErrorMsg'=InvalidUnknown)$ \newline
-$\land ChangeOnly(ErrorMsg)$ &
-\multirow{9}{2cm}{$FALSE$} \\
-\hhline{|-|-|~|-|~|} $S_{unkF} = \newline \{@{F_{ax}}, @{F_{bx}}, @{F_{ay}} \}$ & - & & $ErrorMsg'=NoSolution$ \newline
-$\land ChangeOnly(ErrorMsg)$ & \\
-%\hhline{|-|-|~|-|~|} $S_{unkF} = \newline \{@{F_{ax}}, @{F_{bx}}, @{F_{by}} \}$ & - & & $ErrorMsg'=NoSolution$ \newline
-%$\land ChangeOnly(ErrorMsg)$ & \\
-%\hhline{|-|-|~|-|~|} $S_{unkF} = \newline \{@{F_{ax}}, @{F_{bx}}, @{F_1} \}$ & - & & $ErrorMsg'=NoSolution$ \newline
-%$\land ChangeOnly(ErrorMsg)$ & \\
-%\hhline{|-|-|~|-|~|} $S_{unkF} = \newline \{@{F_{ax}}, @{F_{bx}}, @{F_2} \}$ & - & & $ErrorMsg'=NoSolution$ \newline
-%$\land ChangeOnly(ErrorMsg)$ & \\
-\hhline{|-|-|~|-|~|}
-%\multirow{3}{4.2cm}
-{$S_{unkF} = \newline \{@{F_{ax}}, @{F_{ay}}, @{F_1}\}$} & 
-$x_1 \ne 0 $ \newline
-$\land~\theta_3 \ne 0$ \newline
-$\land~\theta_3 \ne 180$
-& & 
-$F_{ax}' = $\newline
-$\frac{-\cos\theta_3 F_2 x_2 \sin\theta_4 + \cos\theta_3 F_{by} L + F_2 \cos\theta_4 x_1 \sin\theta_3
-+ F_{bx} x_1 \sin\theta_3}{x_1 \sin\theta_3}$\newline
-$\land$\newline
-$F_{ay}' = -\frac{F_2 x_2 \sin\theta_4 - F_{by} L - F_2 \sin\theta_4 x_1 + F_{by} x_1}{x_1}$\newline
-{$\land~F_1' = \frac{-F_2 x_2 \sin\theta_4 + F_{by} L}{x_1 \sin\theta_3} \land ChangeOnly(S_{unkF})$}
-& \\
-\hhline{|~|-|~|-|~|} & $otherwise$ & & $(ErrorMsg'=Indeterminant)$\newline
-$\land ChangeOnly(ErrorMsg)$ & \\
-\hhline{|-|-|~|-|-|}
-
-\multicolumn{5}{c}{} \\
-\multicolumn{3}{>{\large}c}{$H_2$} & \multicolumn{2}{>{\large}c}{$G$} \\
-\end{tabular} }
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Catalyses Early Consideration of Design}
-\begin{itemize}
-\item Identification of significant issues early will improve the design
-\item Section for considering sensitivity
-\begin{itemize}
-\item Conditioning?
-\item Buckling of beam
-\end{itemize}
-\item Non-functional requirements
-\begin{itemize}
-\item Tradeoffs in design
-\item Speed efficiency versus accuracy
-\end{itemize}
-\item Tolerance allowed for solution: $|\sum{F_{xi}}| / \sqrt{\sum{F_{xi}}^2} \le \epsilon$
-\item Solution validation strategies
-\item List of possible changes in requirements
-\end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Reduces Ambiguity}
-\begin{itemize}
-\item Unambiguous requirements allow communication between experts, requirements review, designers do not have to
-make arbitrary decisions
-\item Tabular expressions allow automatic verification of completeness
-\item Table of symbols
-\item Abbreviations and acronyms
-\item Scope of software product and system context
-\item User characteristics
-\item Terminology definition and data definition
-\item Ends arguments about the relative merits of different designs
-\end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Identifies Range of Model Applicability}
-\begin{itemize}
-\item Clear documentation as to when model applies
-\item Can make the design specific to the problem
-\item Input data constraints are identified
-\begin{itemize}
-\item Physically meaningful: $0 \leq x_1 \leq L$
-\item Maintain physical description: PS1.a, $0 < h \leq 0.1 L$
-\item Reasonable requirements: $0 \leq \theta_3 \leq 180$
-\end{itemize}
-\item The constraints for each variable are documented by tables, which are later composed together
-\item $(min_f \le |F_{ax}| \le max_f) 
-\land (|F_{ax}| \ne 0) \Rightarrow \forall ({FF}|{@{FF} \in S_F} \cdot {FF \ne 0
-\land  \frac{max\{{|F_{ax}|,|FF|}\}}{min\{{|F_{ax}|, |FF|}\}} \le 10 ^ {r_f}})$
-\end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-
-\frametitle{Summary of Variables}
-
-\begin{table}
-\begin{center}
-\scalebox{0.9}{
-\begin{tabular}{|l|l|p{3.0cm}|p{3.3cm}|l|}
-\multicolumn{5}{c}{} \\
-\hline
-\textbf{Var} & \textbf{Type} & \textbf{Physical\newline Constraints} & \textbf{System\newline Constraints} &
-\textbf{Prop} \\
-\hline $x$ & $Real$ & $x\ge 0 \land x\le L$ & $min_d \le x \le max_d$ & NIV \\
-\hline $x_1$ & $Real$ & $x_1\ge0 \land x_1\le L$ & $min_d \le x_1 \le max_d$ & IN \\
-\hline $x_2$ & $Real$ & $x_2\ge0 \land x_2\le L$ & $min_d \le x_2 \le max_d$ & IN \\
-\hline $e$ & $Real$ & $e>0 \land e \le h$ & $min_e \le e \le max_e$ & IN \\
-\hline $h$ & $Real$ & $h>0 \land h\le 0.1L$ & $min_h \le h \le max_h$ & IN \\
-\hline $L$ & $Real$ & $L>0$ & $min_d \le L \le max_d$ & IN \\
-\hline $E$ & $Real$ & $E>0$ & $min_E \le E \le max_E$ & IN \\
-\hline $\theta_3$ & $Real$ & $-\infty < \theta_3 < +\infty$ & $0 \le \theta_3 \le 180$ & IN \\
-\hline $\theta_4$ & $Real$ & $-\infty < \theta_4 < +\infty$ & $0 \le \theta_4 \le 180$ & IN \\
-\hline $V$ & $Real$ & $-\infty < V < +\infty$ & - & OUT \\
-\hline $M$ & $Real$ & $-\infty < M < +\infty$ & - & OUT \\
-\hline $y$ & $Real$ & $-\infty < y < +\infty$ & - & OUT \\
-\hline $...$ & $...$ & $...$ & ... & ... \\
-\hline
-\end{tabular} }
-\end{center}
-\end{table}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Clear Documentation of Assumptions}
-\scalebox{0.82}{
-\begin{tabular}{| p{1.3cm} | p{1.3cm} | l | l | l | l | l | l | l | l | l | l | l | l |}
-\hhline{--------------}
-Phy. Sys. /Goal & Data /Model & \multicolumn{10}{c|}{Assumption} & \multicolumn{2}{c|}{Model} \\
-\hhline{~~------------}
-&  & A1 & A2 & ... & A4 & ... & A8 & A9 & A10 & ...  & A14 & \textbf{M1} & ... \\
-\hhline{--------------}
-\textbf{G1} & \textbf{T1} & $\surd$ & & ... &  & ... & $\surd$ & $\surd$ &  & ... & & $\surd$ & ...\\
-\hhline{--------------}
-\textbf{G2} & \textbf{T2} & $\surd$ & & ... & &... & $\surd$ & $\surd$ &  & ... & &  & ... \\
-\hhline{--------------}
-\textbf{G3} & \textbf{T3} & $\surd$ & & ... &  &... &  & $\surd$ & $\surd$ & ... & &  & ...\\
-\hhline{--------------}
-~ & \textbf{M1} &  & $\surd$ & ...  &  & ... &  & &  & ... & & $\surd$ &... \\
-\hhline{--------------}
-PS1.a & $L$ &  & &... & &...  & & & $\surd$  & ... & & ... & ... \\
-\hhline{--------------}
-... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... \\
-\hhline{--------------}
-\end{tabular}
-}
-~\newline
-~\newline
-\textbf{A10}. The deflection of the beam is caused by bending moment only, the shear does not contribute.\\
-%\textbf{A15}. The beam behaves as a rigid body
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\frame{\frametitle{More on the New Template}
-\begin{itemize}%[<+-| alert@+>]%[iacolor=gray]
-\item Why a new template?
-\item The new template
-\begin{itemize}
-\item Overview of changes from existing templates
-\item Goal $\rightarrow$ Theoretical Model $\rightarrow$ Instanced Model hierarchy
-\item Traceability matrix
-\item System behaviour, including input constraints
-\end{itemize}
-\end{itemize}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\frame{\frametitle{Why a New Template?}
-\begin{enumerate}%[<+-| alert@+>]%[iacolor=gray]
-%\item Reasons for a new template also form principles for its design
-\item One user viewpoint for the physical model
-\item Assumptions distinguish models
-\item High potential for reuse of functional requirements
-\item Characteristic hierarchical nature facilitates change
-\item Continuous mathematics presents a challenge
-\end{enumerate}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\frame{\frametitle{Overview of the New Template}
-
-\begin{itemize}
-
-\item{Reference Material}
-
-\item{Introduction:} 
-{a) Purpose of the Document}
-{b) Scope of the Software Product}
-{c) Organization of the Document}
-
-\item General System Description:
-{a) System Context}
-{b) User Characteristics}
-{c) System Constraints}
-
-\item \structure<2->{Specific System Description:
-a) Problem Description 
-b) Solution Characteristics Specification
-c) Non-functional Requirements}
-
-\item{Other System Issues}
-
-\item \structure<2->{Traceability Matrix}
-
-\item List of Possible Changes in the Requirements
-
-\item{Values of Auxiliary Constants}
-
-\item{References}
-
-\end{itemize}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Excerpts from Specific System Description}
-
-\begin{itemize}
-
-\item Problem Description
-\begin{itemize}
-\item Physical system description (\textbf{PS}) 
-\item Goals (\textbf{G})
-\end{itemize}
- 
-\item Solution Characteristics Specification
-\begin{itemize}
-\item Assumptions (\textbf{A})
-\item Theoretical models (\textbf{T})
-\item Data definitions
-\item Instanced models (\textbf{M})
-\item Data constraints
-\item System behaviour
-\end{itemize}
-
-\item Non-functional Requirements
-\begin{itemize}
-\item Accuracy of input data
-\item Sensitivity of the model
-\item Tolerance of the solution
-\item Solution validation strategies
-\end{itemize}
-
-\end{itemize}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Refinement from Abstract to Concrete}
-
-\begin{overlayarea}{\textwidth}{5.3cm}
-\begin{figure}[H]
-\includegraphics<1>[scale=0.41]{../Figures/RefinementHierarchy.pdf}
-\includegraphics<2>[scale=0.41]{../Figures/RefinementG1.pdf}
-\includegraphics<3>[scale=0.41]{../Figures/RefinementT11.pdf}
-\includegraphics<4>[scale=0.41]{../Figures/RefinementM111.pdf}
-\includegraphics<5>[scale=0.41]{../Figures/RefinementT12.pdf}
-\end{figure}
-\end{overlayarea}
-
-\begin{overlayarea}{\textwidth}{1cm}
-
-\only<2>{\textbf{G1}: Solve for unknown forces}
-
-\only<3>{
-\begin{center} 
-$%\begin{displaymath}
-\mathbf{(T1_1)}~\left\{ 
-\begin{array}{lll}
-\textrm{$\sum{F_{xi}} = 0$}\\  
-\textrm{$\sum{F_{yi}} = 0$}\\
-\textrm{$\sum{M_i} = 0$}\\
-\end{array} \right. $%\end{displaymath}
-\end{center}
-}
-
-\only<4>{
-\begin{center} $%\begin{displaymath}
-\textbf{(M1)}~\left\{ 
-\begin{array}{lll}
-\textrm{$F_{ax} - F_1\cdot \cos\theta_3 - F_2\cdot \cos\theta_4 - F_{bx} = 0$} \\ 
-\textrm{$F_{ay} - F_1\cdot \sin\theta_3 - F_2\cdot \sin\theta_4 + F_{by} = 0$}\\
-\textrm{$- F_1\cdot x_1\sin\theta_3 - F_2\cdot x_2\sin\theta_4 + F_{by}\cdot L = 0$}\\
-\end{array} \right. 
-$%\end{displaymath}
-\end{center}
-}
-
-\only<5>{
-The virtual work done by all the external forces and couples acting on the system is zero for each independent virtual
-displacement of the system, or mathematically $\delta U = 0$
-}
-\end{overlayarea}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Other goals and models}
-\begin{itemize}
-\item \textbf{G2}: Solve for the functions of shear force and bending moment along the beam
-\item \textbf{G3}: Solve for the function of deflection along the beam
-\item $\mathbf{T3_1}$: $\frac{d^2 y}{d x^2} = \frac{M}{EI}$, $y(0) = y(L) = 0$
-\item $\mathbf{T3_2}$: $y$ determined by moment area method
-\item $\mathbf{T3_3}$: $y$ determined using Castigliano's theorem
-\item $\mathbf{M3_{11}}$: $y = \frac{12 \int_0^L (\int_0^L M dx) dx}{Eeh^3}$, $y(0) = y(L) = 0$
-\end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Kreyman and Parnas Five Variable Model}
-\begin{itemize}
-\item An alternative approach
-\item Unfortunately the numerical algorithm is not hidden in the requirements specification
-\item The analogy with real-time systems leads to some confusion
-\end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Concluding Remarks}
-\begin{itemize}
-\item Quality is a concern for scientific computing software
-\item Software engineering methodologies can help
-\item Motivated, justified and illustrated a method of writing requirements specification for engineering computation
-to improve reliability
-\item Also improve quality with respect to usability, verifiability, maintainability, reusability and portability
-\item Tabular expressions to reduce ambiguity, encourage systematic approach
-\item Conclusions can be generalized because other computation problems follow the same pattern of \emph{Input} then
-\emph{Calculate} then \emph{Output}
-\item Benefits of approach should increase as the number of details and the number of people involved increase
-\end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Concluding Remarks (Continued)}
-\begin{itemize}
-\item A new template for scientific computing has been developed
-\item Characteristics of scientific software guided the design
-\item Designed for reuse
-\item Functional requirements split into ``Problem Description'' and ``Solution Characteristics Specification''
-\item Traceability matrix
-\item Addresses nonfunctional requirements (but room for improvement)
-\end{itemize}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[allowframebreaks]
 \frametitle{References}
-
-\nocite{Lai2004, SmithEtAl2004, SmithAndLai2005, IEEE1998, IEEE2000,
-  IEEE2000_ThayerAndDorfman, RobertsonAndRobertson1999Vol, DesharnaisEtAl2004,
-  JanickiAndKhedri2001, GhezziEtAl2003, KreymanAndParnas2002,
-  ParnasAndClements1986, Segal2007_Dagsthul, Segal2008, Segal2007, Segal2005, Dubois2002}
 
 \bibliography{../../ReferenceMaterial/References}
 
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
