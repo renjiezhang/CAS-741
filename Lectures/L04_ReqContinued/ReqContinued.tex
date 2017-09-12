@@ -1,0 +1,115 @@
+%\documentclass[handout]{beamer} 
+\documentclass[t,12pt,numbers,fleqn]{beamer}
+%\documentclass[ignorenonframetext]{beamer}
+
+\newif\ifquestions
+%\questionstrue
+\questionsfalse
+
+\usepackage{pgfpages} 
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    filecolor=blue,
+    urlcolor=blue,
+    unicode=false}
+\urlstyle{same}
+
+\usepackage{booktabs}
+\usepackage{hhline}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{array}
+
+\bibliographystyle{plain}
+
+%\usetheme{Iimenau}
+
+\useoutertheme{split} %so the footline can be seen, without needing pgfpages
+
+%\pgfpagesuselayout{resize to}[letterpaper,border shrink=5mm,landscape]  %if this is uncommented, the hyperref links do not work
+
+\mode<presentation>{}
+
+\input{../def-beamer}
+
+\newcommand{\topic}{04 Requirements Continued DRAFT}
+
+\input{../titlepage}
+
+\begin{document}
+
+\input{../footline}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Requirements}
+
+\bi
+\item Administrative details
+\item Questions?
+\item License and copyright
+\item Requirements documentation for scientific computing
+\item A new requirements template
+\item Advantages of new template and examples
+\item The new template from a software engineering perspective
+\item Concluding remarks
+\item References
+\ei
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Administrative Details}
+
+\bi
+\item Add me to your GitHub repos, my GitHub id is \texttt{smiths}
+\item Linked-In
+\item Need schedule for informal presentations and GitHub issues
+\ei
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Administrative Details: Deadlines}
+~\newline
+\begin{tabular}{l l l}
+\textbf{Problem Statement} & Week 02 & Sept 15\\
+SRS Present & Week 04 & Week of Sept 25\\
+SRS & Week 05 & Oct 4\\
+V\&V Present & Week 06 & Week of Oct 16\\
+V\&V Plan & Week 07 & Oct 25\\
+MG Present & Week 08 & Week of Oct 30\\
+MG & Week 09 & Nov 8\\
+MIS Present & Week 10 & Week of Nov 13\\
+MIS & Week 11 & Nov 22\\
+Impl.\ Present & Week 12 & Week of Nov 27\\
+Final Documentation & Week 13 & Dec 6\\
+\end {tabular}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Questions?}
+\begin{itemize}
+\item Questions about project choices?
+\item Questions about software tools?
+\bi
+\item git?
+\item LaTex?
+\ei
+\item Partial tex files in the blank project template
+\item Problem statement
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
