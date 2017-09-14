@@ -34,7 +34,7 @@
 
 \input{../def-beamer}
 
-\newcommand{\topic}{04 Requirements Continued DRAFT}
+\newcommand{\topic}{04 Requirements Continued}
 
 \input{../titlepage}
 
@@ -67,8 +67,13 @@
 
 \bi
 \item Add me to your GitHub repos, my GitHub id is \texttt{smiths}
-\item Linked-In
-\item Need schedule for informal presentations and GitHub issues
+\item Assign me an issue to review your problem statements
+\bi
+\item Clearly state that you would like me to review your problem statement
+\item Include a link to your problem statement
+\ei
+\item Updates to SRS template
+\item Commonality analysis should start from SRS template
 \ei
 
 \end{frame}
@@ -101,12 +106,8 @@ Final Documentation & Week 13 & Dec 6\\
 \begin{itemize}
 \item Questions about project choices?
 \item Questions about software tools?
-\bi
-\item git?
-\item LaTex?
-\ei
-\item Partial tex files in the blank project template
-\item Problem statement
+\item Questions about problem statements?
+\item Questions about software qualities?
 \end{itemize}
 \end{frame}
 
@@ -274,6 +275,8 @@ programs}}
 
 \begin{frame}
 \frametitle{Proposed Template}
+
+From \cite{SmithEtAl2007}
 
 \scalebox{0.85}{
 \begin{minipage}{1.2\textwidth}
@@ -535,6 +538,7 @@ PS1.a & $L$ &  & &... & &...  & & & $\surd$  & ... & & ... & ... \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \frame{\frametitle{Why a New Template?}
+From \cite{SmithAndLai2005}
 \begin{enumerate}%[<+-| alert@+>]%[iacolor=gray]
 %\item Reasons for a new template also form principles for its design
 \item One user viewpoint for the physical model
@@ -686,6 +690,7 @@ displacement of the system, or mathematically $\delta U = 0$
 \begin{frame}
 \frametitle{Kreyman and Parnas Five Variable Model}
 \begin{itemize}
+\item See \cite{KreymanAndParnas2002}
 \item An alternative approach
 \item Unfortunately the numerical algorithm is not hidden in the requirements specification
 \item The analogy with real-time systems leads to some confusion
@@ -986,9 +991,21 @@ at the end of a word.}
 
 \begin{itemize}
 
-\item Definition
+\item Explicit links
+\bi
+\item Within document
+\item Between documents
+\ei
+\item Use labels, cross-references, traceability matricies
 \item Common sense suggests traceability improves maintainability
-
+\item Shows consequence of change
+\item Minimizes cost of recertification
+\item Additional advantages
+\bi
+\item Program comprehension
+\item Impact analysis
+\item Reuse
+\ei
 \end{itemize}
 
 \end{frame}
@@ -997,11 +1014,6 @@ at the end of a word.}
 
 \begin{frame}[allowframebreaks]
 \frametitle{References}
-
-\nocite{Lai2004, SmithEtAl2004, SmithAndLai2005, IEEE1998, IEEE2000,
-  IEEE2000_ThayerAndDorfman, RobertsonAndRobertson1999Vol, DesharnaisEtAl2004,
-  JanickiAndKhedri2001, GhezziEtAl2003, KreymanAndParnas2002,
-  ParnasAndClements1986, Segal2007_Dagsthul, Segal2008, Segal2007, Segal2005, Dubois2002}
 
 \bibliography{../../ReferenceMaterial/References}
 
