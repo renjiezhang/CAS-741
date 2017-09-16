@@ -1,6 +1,11 @@
-# CAS 741/CSE 741 Development of Scientific Computing Software
+# Project Name
 
-This course presents the basic principles of software development for reliable
-scientific and engineering software. Using example applications, a systematic
-process is given for the devel- opment and documentation of requirements, system
-design, module design, implementation, testing and inspection.
+Developer Name:
+
+This project is a reimplementation of ...
+
+The folders and files for this project are as follows:
+
+Doc - Documentation for the project
+Code - Implementation
+…
