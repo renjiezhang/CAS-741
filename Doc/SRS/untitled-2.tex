@@ -30,7 +30,7 @@
     urlcolor=cyan           % color of external links
 }
 
-\input{../Comments}
+%\input{../Comments}
 
 % For easy change of table widths
 \newcommand{\colZwidth}{1.0\textwidth}
@@ -106,6 +106,10 @@ This section records information for easy reference.
 
 \subsection{Table of Units}
 
+Throughout this document SI (Syst\`{e}me International d'Unit\'{e}s) is employed
+as the unit system.  In addition to the basic units, several derived units are
+used as described below.  For each unit, the symbol is given followed by a
+description of the unit and the SI name.
 ~\newline
 
 \renewcommand{\arraystretch}{1.2}
@@ -124,6 +128,10 @@ This section records information for easy reference.
 
 \subsection{Table of Symbols}
 
+The table that follows summarizes the symbols used in this document along with
+their units.  The choice of symbols was made to be consistent with the heat
+transfer literature and with existing documentation for solar water heating
+systems.  The symbols are listed in alphabetical order.
 
 \renewcommand{\arraystretch}{1.2}
 %\noindent \begin{tabularx}{1.0\textwidth}{l l X}
@@ -170,22 +178,22 @@ $C$ & \si[per-mode=symbol] {price} & stock daily price\\
 \pagenumbering{arabic}
 
 \section{Introduction}
-Stock price prediction is a popular and challenging topic nowadays.There were serveral prediction models such as linear statistical time series models. With the development of Big Data and Machine learning, the prediction technology may have a significant improvement. 
-This project will introduce a stock prediction system is used to analyze the future trend of stocks. The prediction was provided by machine learning algorithms based on the historical data. 
-The system will be run on a big data platform (Spark), in order to obtain the more accurate results. In this case, we need to setup a distributed system to support Spark.
+Stock price prediction is a popular and challenging project now a days. With the development of Big Data and Machine learning, the prediction technology had a significant improvement. 
+This project will introduce a Stock Prediction system is used to analysis the future trend of stocks. The prediction was provided by machine learning algorithms based on the historical data. 
+The system will run on a big data platform (Spark), in order to obtain the more accury results. In this case, we need to setup a distributed system to support Spark.
 
 \subsection{Purpose of Document}
-The purpose of this document is to explain how to implement a machine learning system for stock price prediction.   With different algorithms and dataset, the system can be used for both short term and long term predictions.
-In this case, we will use Support Vector Machine to predict the future trend of stocks based on the daily historical data. 
+The purpose of this document is to explain how to implement a whole system for machine learning prediction. Stock is the example being used here.  With different algorithms and liberaries, the system can be used for more types of predictions.
+In this case, we will use support vector machine althrithsm to predict the future trend of stocks based on the historical data. 
 \subsection{Scope of Requirements} 
 The purpose of this software is to give the user a reference by calculating the possibility of the future price change. For example, it may go up with a chance of xx percent and go down with a chance of xx percent. 
 \subsection{Characteristics of Intended Reader} 
-Reader are not required to have any specific  background knowledge. However, it is very helpful to have some basic knowledge of big data, machine learning, especially Support Vector Machine.
+Reader are not required to have any specific knowledge background. However, it is very helpful to have some basic knowledge of big data and machine learning.
 \subsection{Organization of Document}
-This document will cover the configuration of the Spark distributed system for big data, the workflow of the program and the explaination of SVM algorithm.
+This document will cover the configuration of the big data platform, the work flow of the program and the algorithm of the stock and the machine learning.
 \section{General System Description}
 
-The project have an interface to let the user choose the company, but on the demo there will be only one company to display. It loads the historical data provided by the user and caculate the future trend. A plot graph will be displayed  as well. There will be two results come out, one is the possibility of increase and the other is of decrease.
+The project have an interface to let user choose the company but on the demo there will be only one company to display. A char graph will be draw by the system as well. The diagram displays the historical data and future trend posibility. 
 
 \subsection{System Context}
 
@@ -198,29 +206,28 @@ The project have an interface to let the user choose the company, but on the dem
 \end{itemize}
 \item \progname{} Responsibilities:
 \begin{itemize}
-\item Load data  from files and display errors when the loading failes
+\item Load data set from files and display errors when the loading failes
 \item Display the plot of the stock
-\item Predict the future trent based on the historical data with the possibilities
+\item Predict the future trent based on the historical data
 \end{itemize}
 \end{itemize}
 
 \subsection{User Characteristics} \label{SecUserCharacteristics}
 
-The end user of \progname{} should have some basic knowledge of machine learning algorithm (Support Vector Machine).
+The end user of \progname{} should have some basic knowledge of machine learning alghrithms (Support vector Machine).
 
 \subsection{System Constraints}
-The system supports multiple operating systems. However, since it is running on Spark, it is more stable with Linux/Ubuntu. The program needs a distributed systtem consist of at lease three computers, one will be the driver of Spark, the others will be the workers.
+The system supports multiple operating systems. However, since it is running on Spark, it is more stable with Linux/Ubuntu.
 
 \section{Specific System Description}
 
-This system is used to predict the future trend of stocks based on the historical data from Yahoo Finance using Support Vector Machine algorithm. The data from other resource is acceabled if they fit the format. The programming language will be Python.
+This system is used to predict the future trend of stocks based on the historical data from Yahoo Finance using Support Vector Machine althorithm. The programming language will be Python.
 
 \subsection{Problem Description} \label{Sec_pd}
 
-Stock Prediction is a very important topic in financial industry. It is  complicated because the stock price was affected by too many factors. One of the common prediction technology is to train and test the historical data using machin learning.
-\progname{} is a tool to predict stocks based on machine learning and big data. It implements SVM classifier to train and test the historical data.  With the development of Big Data and Machine learning, it is possible to obtain an more accurate prediction result. 
-To delivery a more accurate result, a large scale of data is needed. In this case it is nessary to run the program on a distributed system platform such as Spark to accerate the caculation speed.
-
+\progname{} is a tool to predict stocks based on machine learning and big data. 
+Stock prediction is not a new technlogy, but the result is not that satisfied. One of the most important reason is the historical data is not supportive due to the hardware and software limitation. 
+With the development of bigdata technology, machine learning prediction have obtained a significant success. 
 
 \subsubsection{Terminology and  Definitions}
 
@@ -239,7 +246,7 @@ Resilient Distributed Datasets (RDD) is a fundamental data structure of Spark. I
 \item Distributed System :
 A distributed system is a model in which components located on networked computers communicate and coordinate their actions by passing messages. It combines a set of computers to work on a single task as one machine.
 \item Training and Testing :
-A training set is a set of data used to discover potentially predictive relationships. A test set is a set of data used to assess the strength and utility of a predictive relationship. Test and training sets are used in intelligent systems, machine learning, genetic programming and statistics.
+More formally, a training set is a set of data used to discover potentially predictive relationships. A test set is a set of data used to assess the strength and utility of a predictive relationship. Test and training sets are used in intelligent systems, machine learning, genetic programming and statistics.
 
 \end{itemize}
 
@@ -259,6 +266,7 @@ The workers are the machines which do the actual jobs and they are called slaves
 
 \end{itemize}
 
+\wss{A figure here may make sense for most SRS documents}
 
 \begin{figure}[h!]
 \begin{center}
@@ -303,9 +311,6 @@ Independent identically distributed. A sequence or other collection of random va
 
 \item[A\refstepcounter{assumpnum}\theassumpnum \label{Ass3}:]
 All companies are active on NASDAQ during the period of 2003-2012.
-
-\item[A\refstepcounter{assumpnum}\theassumpnum \label{Ass4}:]
-The historical data is daily.
 
 \end{itemize}
 
@@ -384,7 +389,8 @@ There is no General Definitions applied on this project.
 \subsubsection{Data Definitions}\label{sec_datadef}
 
 This section collects and defines all the data needed to build the instance
-models. The dimension of each quantity is also given. 
+models. The dimension of each quantity is also given.  \wss{Modify the examples
+  below for your problem, and add additional definitions as appropriate.}
 
 %DD1
 ~\newline
@@ -528,6 +534,10 @@ one which is expressed in mathematical terms. It uses concrete symbols defined
 in Section~\ref{sec_datadef} to replace the abstract symbols in the models 
 identified in Sections~\ref{sec_theoretical} and~\ref{sec_gendef}.
 
+The goals \wss{reference your goals} are solved by \wss{reference your instance
+  models}.  \wss{other details, with cross-references where appropriate.}
+\wss{Modify the examples below for your problem, and add additional models as
+  appropriate.}
 
 ~\newline
 
@@ -574,9 +584,9 @@ The result of 1 stands for increase and -1 means decrease.
  \caption{\label{Input Data}}
  \end{center}
  \end{figure}
+\subsubsection*{Derivation of ...}
 
-
-
+\wss{May be necessary to include this subsection in some cases.}
 
 \subsubsection{Data Constraints} \label{sec_DataConstraints}    
 
@@ -602,7 +612,7 @@ Table~\ref{TblSpecParams}.
   \textbf{Var} & \textbf{Physical Constraints} & \textbf{Software Constraints} &
                              \textbf{Typical Value} & \textbf{Uncertainty}\\
   \midrule 
-  $C$ & $C > 0$ & NA & 1000 \si[per-mode=symbol] {dollar} & \$
+  $L$ & $L > 0$ & $L_{\text{min}} \leq L \leq L_{\text{max}}$ & 1.5 \si[per-mode=symbol] {\metre} & 10\%
   \\
   \bottomrule
 \end{longtable*}
@@ -610,7 +620,7 @@ Table~\ref{TblSpecParams}.
 
 \noindent 
 \begin{description}
-\item[(*)] 
+\item[(*)] \wss{you might need to add some notes or clarifications}
 \end{description}
 
 \begin{table}[!h]
@@ -618,9 +628,9 @@ Table~\ref{TblSpecParams}.
 \renewcommand{\arraystretch}{1.2}
 \noindent \begin{longtable*}{l l} 
   \toprule
- % \textbf{Var} & \textbf{Value} \\
+  \textbf{Var} & \textbf{Value} \\
   \midrule 
-%  $L_\text{min}$ & 0.1 \si{\metre}\\
+  $L_\text{min}$ & 0.1 \si{\metre}\\
   \bottomrule
 \end{longtable*}
 \end{table}
@@ -632,7 +642,7 @@ Table~\ref{TblSpecParams}.
   \toprule
   \textbf{Var} & \textbf{Physical Constraints} \\
   \midrule 
-  $y$ & $1$ or $-1$ 
+  $T_W$ & $T_\text{init} \leq T_W \leq T_C$ (by~\aref{A_charge})
   \\
   \bottomrule
 \end{longtable*}
@@ -672,7 +682,6 @@ The system needs to have a more friendly interface and the layout of the plot gr
 \noindent \begin{itemize}
 
 \item[LC\refstepcounter{lcnum}\thelcnum\label{LC1}:] In the real world, stock prices are affected by different factors. The prediction should not only rely on the historical data. I wish to add more factors to involve the prediction in the future such as Intra day.
-\item[LC\refstepcounter{lcnum}\thelcnum\label{LC2}:] The data now is daily file. With a historical data with higher frenquency, the result would be more acurate.
 
 \end{itemize}
 
@@ -705,11 +714,9 @@ the assumptions.
 \ddref{StockM}     & & & &  \\ \hline
 \ddref{IndexV}     & & & &   \\ \hline
 \ddref{IndexM}    & & & &  \\ \hline
-\iref{adjClose}      &X &X &X & \\ \hline
+\iref{adjClose}      &X & & & \\ \hline
 \lcref{LC1}            & & & & \\ \hline
-\lcref{LC2}            & & & &X \\ \hline
-
-
+\hline
 \end{tabular}
 \caption{Traceability Matrix Showing the Connections Between Assumptions and Other Items}
 \label{Table:A_trace}
@@ -757,50 +764,49 @@ the assumptions.
 \label{Table:R_trace}
 \end{table}
 
-%The purpose of the traceability graphs is also to provide easy references on
-%what has to be additionally modified if a certain component is changed.  The
-%arrows in the graphs represent dependencies. The component at the tail of an
-%arrow is depended on by the component at the head of that arrow. Therefore, if a
-%component is changed, the components that it points to should also be
-%changed. Figure~\ref{Fig_ATrace} shows the dependencies of theoretical models,
-%general definitions, data definitions, instance models, likely changes, and
-%assumptions on each other. Figure~\ref{Fig_RTrace} shows the dependencies of
-%instance models, requirements, and data constraints on each other.
-%
-%% \begin{figure}[h!]
-%% 	\begin{center}
-%% 		%\rotatebox{-90}
-%% 		{
-%% 			\includegraphics[width=\textwidth]{ATrace.png}
-%% 		}
-%% 		\caption{\label{Fig_ATrace} Traceability Matrix Showing the Connections Between Items of Different Sections}
-%% 	\end{center}
-%% \end{figure}
-%
-%
-%% \begin{figure}[h!]
-%% 	\begin{center}
-%% 		%\rotatebox{-90}
-%% 		{
-%% 			\includegraphics[width=0.7\textwidth]{RTrace.png}
-%% 		}
-%% 		\caption{\label{Fig_RTrace} Traceability Matrix Showing the Connections Between Requirements, Instance Models, and Data Constraints}
-%% 	\end{center}
-%% \end{figure}
+The purpose of the traceability graphs is also to provide easy references on
+what has to be additionally modified if a certain component is changed.  The
+arrows in the graphs represent dependencies. The component at the tail of an
+arrow is depended on by the component at the head of that arrow. Therefore, if a
+component is changed, the components that it points to should also be
+changed. Figure~\ref{Fig_ATrace} shows the dependencies of theoretical models,
+general definitions, data definitions, instance models, likely changes, and
+assumptions on each other. Figure~\ref{Fig_RTrace} shows the dependencies of
+instance models, requirements, and data constraints on each other.
+
+% \begin{figure}[h!]
+% 	\begin{center}
+% 		%\rotatebox{-90}
+% 		{
+% 			\includegraphics[width=\textwidth]{ATrace.png}
+% 		}
+% 		\caption{\label{Fig_ATrace} Traceability Matrix Showing the Connections Between Items of Different Sections}
+% 	\end{center}
+% \end{figure}
+
+
+% \begin{figure}[h!]
+% 	\begin{center}
+% 		%\rotatebox{-90}
+% 		{
+% 			\includegraphics[width=0.7\textwidth]{RTrace.png}
+% 		}
+% 		\caption{\label{Fig_RTrace} Traceability Matrix Showing the Connections Between Requirements, Instance Models, and Data Constraints}
+% 	\end{center}
+% \end{figure}
 
 \newpage
-\section{References}
+
 \bibliographystyle {plainnat}
 \bibliography {../../ReferenceMaterial/References}
 Modeling high-frequency limit order book dynamics with support vector machines  PDF 2013
-~\newline
 Predicting Stock Price Direction using Support Vector Machines PDF 2015
-
 \newpage
 
 \section{Appendix}
 
-
+\wss{Your report may require an appendix.  For instance, this is a good point to
+show the values of the symbolic parameters introduced in the report.}
 
 \subsection{Symbolic Parameters}
 
