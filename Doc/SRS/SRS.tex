@@ -602,7 +602,7 @@ Table~\ref{TblSpecParams}.
   \textbf{Var} & \textbf{Physical Constraints} & \textbf{Software Constraints} &
                              \textbf{Typical Value} & \textbf{Uncertainty}\\
   \midrule 
-  $C$ & $C > 0$ & NA & 1000 \si[per-mode=symbol] {dollar} & \$
+  $C$ & $C > 0$ & $C > 0$ & \$1000 \si[per-mode=symbol]  & NA
   \\
   \bottomrule
 \end{longtable*}
@@ -671,9 +671,8 @@ The system needs to have a more friendly interface and the layout of the plot gr
 
 \noindent \begin{itemize}
 
-\item[LC\refstepcounter{lcnum}\thelcnum\label{LC1}:] In the real world, stock prices are affected by different factors. The prediction should not only rely on the historical data. I wish to add more factors to involve the prediction in the future such as Intra day.
-\item[LC\refstepcounter{lcnum}\thelcnum\label{LC2}:] The data now is daily file. With a historical data with higher frenquency, the result would be more acurate.
-
+\item[LC\refstepcounter{lcnum}\thelcnum\label{LC1}:] In short run, we may need intra-day/high frequency data to increase the accuracy.
+\item[LC\refstepcounter{lcnum}\thelcnum\label{LC2}:] Try to get more data with longer history and with a larger size of distributed system.
 \end{itemize}
 
 \section{Traceability Matrices and Graphs}
@@ -706,8 +705,8 @@ the assumptions.
 \ddref{IndexV}     & & & &   \\ \hline
 \ddref{IndexM}    & & & &  \\ \hline
 \iref{adjClose}      &X &X &X & \\ \hline
-\lcref{LC1}            & & & & \\ \hline
-\lcref{LC2}            & & & &X \\ \hline
+\lcref{LC1}            & & & &X \\ \hline
+\lcref{LC2}            & & & & \\ \hline
 
 
 \end{tabular}
@@ -800,7 +799,7 @@ Predicting Stock Price Direction using Support Vector Machines PDF 2015
 
 \section{Appendix}
 
-
+NA
 
 \subsection{Symbolic Parameters}
 
