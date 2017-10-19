@@ -12,37 +12,50 @@
 }
 \usepackage[round]{natbib}
 
-\title{SE 3XA3: Test Plan\\Title of Project}
-
-\author{Team \#, Team Name
-		\\ Student 1 name and macid
-		\\ Student 2 name and macid
-		\\ Student 3 name and macid
-}
-
-\date{\today}
-
 \input{../Comments}
 
 \begin{document}
 
+\title{Stock Prediction System} 
+\author{Renjie Zhang}
+\date{\today}
+	
 \maketitle
 
 \pagenumbering{roman}
-\tableofcontents
-\listoftables
-\listoffigures
 
-\begin{table}[bp]
-\caption{\bf Revision History}
+\section{Revision History}
+
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
-Date 1 & 1.0 & Notes\\
-Date 2 & 1.1 & Notes\\
+2017-10-06  & 1.0 & create\\
+2017-10-09  & 1.1 & update\\
 \bottomrule
 \end{tabularx}
-\end{table}
+
+~\newpage
+
+\section{Symbols, Abbreviations and Acronyms}
+
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{l l} 
+  \toprule		
+  \textbf{symbol} & \textbf{description}\\
+  \midrule 
+  T & Test\\
+  \bottomrule
+\end{tabular}\\
+
+\wss{symbols, abbreviations or acronyms -- you can reference the SRS tables if needed}
+
+\newpage
+
+\tableofcontents
+
+\listoftables
+
+\listoffigures
 
 \newpage
 
@@ -52,182 +65,227 @@ This document ...
 
 \section{General Information}
 
+
 \subsection{Purpose}
-
+This test plan describes the testing methods that will drive the testing of the Stock Prediction System.  The document introduces:
+~\newline
+	Test Strategy: rules the test will be based on, including the givens of the project (e.g.: start / end dates, objectives, assumptions); description of the process to set up a valid test (e.g.: entry / exit criteria, creation of test cases, specific tasks to perform, scheduling, data strategy).
+	Execution Strategy: describes how the test will be performed and process to identify and report defects, and to fix and implement fixes.
+	Test Management: process to handle the logistics of the test and all the events that come up during execution (e.g.: communications, escalation procedures, risk and mitigation, team roster)\\
 \subsection{Scope}
-
-\subsection{Acronyms, Abbreviations, and Symbols}
-	
-\begin{table}[hbp]
-\caption{\textbf{Table of Abbreviations}} \label{Table}
-
-\begin{tabularx}{\textwidth}{p{3cm}X}
-\toprule
-\textbf{Abbreviation} & \textbf{Definition} \\
-\midrule
-Abbreviation1 & Definition1\\
-Abbreviation2 & Definition2\\
-\bottomrule
-\end{tabularx}
-
-\end{table}
-
-\begin{table}[!htbp]
-\caption{\textbf{Table of Definitions}} \label{Table}
-
-\begin{tabularx}{\textwidth}{p{3cm}X}
-\toprule
-\textbf{Term} & \textbf{Definition}\\
-\midrule
-Term1 & Definition1\\
-Term2 & Definition2\\
-\bottomrule
-\end{tabularx}
-
-\end{table}	
-
+The testing plan will cover both system testing and unit testing. The functions are the data input,data dormat validation, calculation of SVM,data plot,  Spark RDD Distributed System, and the output of the result. Basically every part of the system will be tested.
 \subsection{Overview of Document}
-
+This document explains the testing plan for the software - Stock Prediction System. It includes the briefcase of software description, the different testing methods - unit testing and integration testing, testing tools. It will cover both functional and non functional requiremes.
 \section{Plan}
 	
 \subsection{Software Description}
-
+The Stock Prediction System is used to analyze the future trend of stocks. The prediction was provided by machine learning algorithms based on the historical data. 
+The system will be run on a big data platform (Spark), in order to obtain the more accurate results. In this case, we need to setup a distributed system to support Spark.
 \subsection{Test Team}
 
+Renjie Zhang
+
 \subsection{Automated Testing Approach}
+NA
+\subsection{Verification Tools}
+Python unit testing : This framework was included in Python standard library. It is easy to use by people familiar with the xUnit frameworks, strong support for test organization and reuse via test suites\\
+Wing : A popular Python IDE which contents the code checking and indent correction.\\
+PyChecker :  A source checking tools which finds problems that are typically caught by a compiler for less dynamic languages; imports each module before checking it.\\
 
-\subsection{Testing Tools}
+\wss{Thoughts on what tools to use, such as the following: unit testing
+  framework, valgrind, static analyzer, make, continuous integration, test
+  coverage tool, etc.}
 
-\subsection{Testing Schedule}
+% \subsection{Testing Schedule}
 		
-See Gantt Chart at the following url ...
+% See Gantt Chart at the following url ...
+
+\subsection{Non-Testing Based Verification}
+Code inspection :  The code inspection includes spelling error and syntax error. Since the programming language is Python, the indentation checking is required.  Those errors could be detected by the tools Wing and PyChecker. \\
+Code walkthrough  : The code walkthrough is used to find out the run time errors such as the array index range, divided by 0 and exception handling.\\
+
+\wss{List any approaches like code inspection, code walkthrough, symbolic
+  execution etc.  Enter not applicable if that is the case.}
 
 \section{System Test Description}
 	
 \subsection{Tests for Functional Requirements}
 
-\subsubsection{Area of Testing1}
+\subsubsection{Data Input}
 		
-\paragraph{Title for Test}
+\paragraph{Tesing for file loading}
 
 \begin{enumerate}
 
-\item{test-id1\\}
+\item{File is loaded successfully\\}
 
-Type: Functional, Dynamic, Manual, Static etc.
+Type: Functional,  Manual, Static etc.
 					
-Initial State: 
+Initial State: NA
 					
-Input: 
+Input: File Path
 					
-Output: 
+Output: Successful Message
 					
-How test will be performed: 
+How test will be performed: System tries to load the data set file based on the file name and location without issues.
 					
-\item{test-id2\\}
+\item{Input Data Validation\\}
 
-Type: Functional, Dynamic, Manual, Static etc.
+Type: Functional, Manual
 					
-Initial State: 
+Initial State: NA
 					
-Input: 
+Input:  Data from the file
 					
-Output: 
+Output: Successful message
 					
-How test will be performed: 
+How test will be performed: System have to ensure the data type and format is correct for each column of the file such as the pattern of the date, the formate of the price and number of digits of decimals. 
 
 \end{enumerate}
 
-\subsubsection{Area of Testing2}
+\subsubsection{Distributed System}
 
-...
+\paragraph{ Spark RDD Testing}
+
+\begin{enumerate}
+
+\item{Data is distributed to workers\\}
+
+Type: Functional,  Manual, Static etc.
+					
+Initial State: NA
+					
+Input: An Array from the driver
+					
+Output: An updated array with marks of each worker
+					
+How test will be performed: There will be an input array to the driver, driver assign the array to each workers. Workers add a mark with its identification to elements of the array and return it back to driver.
+
+\end{enumerate}
+
+\subsubsection{Testing on The Algorithm}
+
+\paragraph{SVM Testing}
+
+\begin{enumerate}
+
+\item{Plot Testing\\}
+
+Type: Functional,  Manual, Static etc.
+					
+Initial State: NA
+					
+Input: A pre-defined Array
+					
+Output: A correct plot
+					
+How test will be performed: System reads the data and generate a plot using the price and the date as the x and y axis.
+
+\item{SVM Calculation \\}
+
+Type: Functional,  Manual, Static etc.
+					
+Initial State: NA
+					
+Input: A collection of data
+					
+Output: correct results
+					
+How test will be performed: The detail of the functions related to SVM Calculation can be found in Unit Test
+
+\end{enumerate}
 
 \subsection{Tests for Nonfunctional Requirements}
 
-\subsubsection{Area of Testing1}
+\subsubsection{Big Data System Testing}
 		
-\paragraph{Title for Test}
+\paragraph{ Performance Testing}
 
 \begin{enumerate}
 
-\item{test-id1\\}
+\item{Performance of the workers\\}
 
-Type: 
+Type: Manual
 					
-Initial State: 
+Initial State: NA
 					
-Input/Condition: 
+Input/Condition: NA
 					
-Output/Result: 
+Output/Result: Result of the time cost\\
 					
-How test will be performed: 
+How test will be performed: It is a good way to increase the performance by increase the number of works. Try to increase one more worker and compare the time cost on data training and testing.
 					
-\item{test-id2\\}
 
-Type: Functional, Dynamic, Manual, Static etc.
-					
-Initial State: 
-					
-Input: 
-					
-Output: 
-					
-How test will be performed: 
 
 \end{enumerate}
 
-\subsubsection{Area of Testing2}
-
-...
 
 \subsection{Traceability Between Test Cases and Requirements}
 
-\section{Tests for Proof of Concept}
+% \section{Tests for Proof of Concept}
 
-\subsection{Area of Testing1}
+% \subsection{Area of Testing1}
 		
-\paragraph{Title for Test}
+% \paragraph{Title for Test}
 
-\begin{enumerate}
+% \begin{enumerate}
 
-\item{test-id1\\}
+% \item{test-id1\\}
 
-Type: Functional, Dynamic, Manual, Static etc.
+% Type: Functional, Dynamic, Manual, Static etc.
 					
-Initial State: 
+% Initial State: 
 					
-Input: 
+% Input: 
 					
-Output: 
+% Output: 
 					
-How test will be performed: 
+% How test will be performed: 
 					
-\item{test-id2\\}
+% \item{test-id2\\}
 
-Type: Functional, Dynamic, Manual, Static etc.
+% Type: Functional, Dynamic, Manual, Static etc.
 					
-Initial State: 
+% Initial State: 
 					
-Input: 
+% Input: 
 					
-Output: 
+% Output: 
 					
-How test will be performed: 
+% How test will be performed: 
 
-\end{enumerate}
+% \end{enumerate}
 
-\subsection{Area of Testing2}
+% \subsection{Area of Testing2}
 
-...
-
-	
-\section{Comparison to Existing Implementation}	
+% ...
 				
 \section{Unit Testing Plan}
-		
-\subsection{Unit testing of internal functions}
-		
-\subsection{Unit testing of output files}		
+The unit testing plan will involve the following modules: Load Data, SVM Kernelling, Volatility Caculating, Momentum Calculating,Predict and Output.\\
+\begin{enumerate}
+
+\item{ Load Data\\}
+The detail of the data loding was explained on 5.1.1
+\item{ Kernelling\\}
+In machine learning, kernel methods are a class of algorithms for pattern analysis, whose best known member is the support vector machine (SVM)
+RBF Kernel is used for price forecasting. A correct result is expected by inputing the parameters to the equation \\
+$k\left (X_i,X_k\right )=\exp \left ( -\frac1{\delta^2}\sum_{n}^{j=1}(X_{ij}-X_{kj})^2 \right )$ \\
+
+\item{ Calculate Volatility\\}
+This function is use to calculate the price volatility and index volatility. Since the calculation is similar they share the same function.A correct result is expected by inputing the parameters to the equation \\
+$\frac{\sum_{i=t-n+1}^{t} \frac{C_i-C_{i-1}}{C{i-1}}}{n}$   \\				
+
+\item{ Calculate Momentum\\}
+This function is use to calculate the price momentum and index momentum. Since the calculation is similar they share the same function.A correct result is expected by inputing the parameters to the equation \\
+$\frac{\sum_{i=t-n+1}^{t} \frac{C_i-C_{i-1}}{C{i-1}}}{n}$   \\	
+
+\item{Predict \\}
+The Predict module receives a set of parameters calculated from the previous functions and returns a result.  A correct result is expected by inputing the parameters to the equation \\\\
+$y=\beta _0+\sum {a_iy_iK(x(i),x)}$\\
+
+\end{enumerate}		
+\wss{Unit testing plans for internal functions and, if appropriate, output
+  files}
 
 \bibliographystyle{plainnat}
 
