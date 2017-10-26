@@ -43,10 +43,17 @@ urlcolor=blue
 \textbf{symbol} & \textbf{description}\\
 \midrule 
 T & Test\\
+SVM & Support Vector Machine\\
+RDD &Resilient Distributed Datasets\\
+K & Kernel function\\
+X & features of the data (date , price)\\
+C& The price from different days\\
+$\beta$ & The error modifier\\
+y& The result between 1 and -1\\ 
 \bottomrule
 \end{tabular}\\
 
-\wss{symbols, abbreviations or acronyms -- you can reference the SRS tables if needed}
+
 
 \newpage
 
@@ -60,22 +67,19 @@ T & Test\\
 
 \pagenumbering{arabic}
 
-This document ...
+
 
 \section{General Information}
-
+This Document is a test plan of the software-Stock Prediction System which is a tool used to predict the stock prices using machine learning. 
 
 \subsection{Purpose}
-This test plan describes the testing methods that will drive the testing of the Stock Prediction System. The document introduces:
-~\newline
-Test Strategy: rules the test will be based on, including the givens of the project (e.g.: start / end dates, objectives, assumptions); description of the process to set up a valid test (e.g.: entry / exit criteria, creation of test cases, specific tasks to perform, scheduling, data strategy).
-Execution Strategy: describes how the test will be performed and process to identify and report defects, and to fix and implement fixes.
-Test Management: process to handle the logistics of the test and all the events that come up during execution (e.g.: communications, escalation procedures, risk and mitigation, team roster)\\
+This test plan describes the testing methods that will drive the testing of the Stock Prediction System and give a guide to the users about the QA. This document includes the descriptions of testing tool, testing functions, unit testing method and system test. Based on these testing, the users may cache the functional and non functional issues from the first release of the software and find out the improvement. 
 \subsection{Scope}
-The testing plan will cover both system testing and unit testing. The functions are the data input, data format validation, calculation of SVM, data plot, Spark RDD Distributed System, and the output of the result. Basically every part of the system will be tested.
+The testing plan will cover both system testing and unit testing. The functions are the data input, data format validation, calculation of SVM, data plot, Spark RDD Distributed System, and the output of the result. Basically every part of the system will be tested.In this plan, most of the testing will be done by unit testing.
 \subsection{Overview of Document}
-This document explains the testing plan for the software - Stock Prediction System. It includes the briefcase of software description, the different testing methods - unit testing and integration testing, testing tools. It will cover both functional and non functional requirements.
+This document explains the testing plan for the software - Stock Prediction System. It includes the briefcase of software description, the different testing methods - unit testing and integration testing, testing tools. It will cover both functional and non functional requirements. 
 \section{Plan}
+In this section, the general description of the testing plan for the software and corresponding testing tools will be introduced.
 \subsection{Software Description}
 The Stock Prediction System is used to analyze the future trend of stocks. The prediction was provided by machine learning algorithms based on the historical data. 
 The system will be run on a big data platform (Spark), in order to obtain the more accurate results. In this case, we need to setup a distributed system to support Spark.
@@ -90,9 +94,7 @@ Python unit testing : This framework was included in Python standard library. It
 Wing : A popular Python IDE which contents the code checking and indent correction.\\
 PyChecker (Optional) : A source checking tools which finds problems that are typically caught by a compiler for less dynamic languages; imports each module before checking it.\\
 
-\wss{Thoughts on what tools to use, such as the following: unit testing
-framework, valgrind, static analyzer, make, continuous integration, test
-coverage tool, etc.}
+
 
 % \subsection{Testing Schedule}
 % See Gantt Chart at the following url ...
@@ -101,9 +103,12 @@ coverage tool, etc.}
 NA
 
 \section{System Test Description}
+This section describes the testing on the system environment, such as the data file input and spark distribution system. Users need to make sure the application run on the system without any issues. 
 \subsection{Tests for Functional Requirements}
+The functional requirements includes the data input, the data format verification, the Spark RDD transaction, the plot generation and the display of the output. The software must fulfill all of the functional requirements without issues.
 
 \subsubsection{Data Input}
+The system needs to load a dataset from a CSV file. This test ensures the data input method. 
 \paragraph{File loading Testing }
 
 \begin{enumerate}
@@ -137,8 +142,9 @@ How test will be performed: System have to ensure the data type and format is co
 \end{enumerate}
 
 \subsubsection{Distributed System}
-
+This section focus on the distributed system of Spark platform. It guides the users to test the data flow on the spark system. RDD is the format of data flow in Spark. testers need to double check the data was distributed into each workers through RDD.
 \paragraph{ Spark RDD Testing}
+
 
 \begin{enumerate}
 
@@ -164,7 +170,7 @@ How test will be performed: There will be an input array to the driver, driver a
 \end{enumerate}
 
 \subsubsection{Testing on The Algorithm}
-
+This section gives the guide to the testing on the Support Vector machine algorithms. It covers the plot test and the calculation of functions in SVM.
 \paragraph{SVM Testing}
 
 \begin{enumerate}
@@ -187,9 +193,10 @@ How test will be performed: The detail of the functions related to SVM Calculati
 
 \end{enumerate}
 
-\subsection{Tests for Nonfunctional Requirements}
-
+\subsection{Tests for Non functional Requirements}
+Non functional requirements are not as prior as functional requirements, but it is still necessary to have tests on them in order to improve the software performance and quality.
 \subsubsection{Big Data System Testing}
+In this section, the only requirement is the performance.
 \paragraph{ Performance Testing}
 
 \begin{enumerate}
@@ -205,7 +212,7 @@ How test will be performed: It is a good way to increase the performance by incr
 
 \end{enumerate}
 
-
+\newpage
 \subsection{Traceability Between Test Cases and Requirements}
 
 \begin{table}[h!]
@@ -217,7 +224,7 @@ How test will be performed: It is a good way to increase the performance by incr
 Input Data testing &X & & & & & \\ \hline
 Data Validation &X & &X & & & &X \\ \hline
 RDD Testing &X & & & & & & \\ \hline
-Polt testing & &X & & & &X \\ \hline
+Plot testing & &X & & & &X \\ \hline
 Kernelling & & & & X& & &X \\ \hline
 Volatility Testing & & & &X & & & \\ \hline 
 Momentum Testing & & & &X & & & \\ \hline 
@@ -264,11 +271,11 @@ The unit testing plan will involve the following modules: Load Data, SVM Kernell
 The detail of the data loading was explained on 5.1.1
 \item{ Kernelling\\}
 In machine learning, kernel methods are a class of algorithms for pattern analysis, whose best known member is the support vector machine (SVM)
-RBF Kernel is used for price forecasting. A correct result is expected by inputing the parameters to the equation \\
-$k\left (X_i,X_k\right )=\exp \left ( -\frac1{\delta^2}\sum_{n}^{j=1}(X_{ij}-X_{kj})^2 \right )$ \\
+RBF Kernel is used for price forecasting. A correct result is expected by inputting the parameters to the equation \\
+$K\left (X_i,X_k\right )=\exp \left ( -\frac1{\delta^2}\sum_{n}^{j=1}(X_{ij}-X_{kj})^2 \right )$ \\
 
 \item{ Calculate Volatility\\}
-This function is use to calculate the price volatility and index volatility. Since the calculation is similar they share the same function.A correct result is expected by inputting the parameters to the equation \\
+This function is use to calculate the price volatility and index volatility. Since the calculation is similar they share the same function. A correct result is expected by inputting the parameters to the equation \\
 $\frac{\sum_{i=t-n+1}^{t} \frac{C_i-C_{i-1}}{C{i-1}}}{n}$ \\ 
 
 \item{ Calculate Momentum\\}
@@ -280,8 +287,7 @@ The Predict module receives a set of parameters calculated from the previous fun
 $y=\beta _0+\sum {a_iy_iK(x(i),x)}$\\
 
 \end{enumerate} 
-\wss{Unit testing plans for internal functions and, if appropriate, output
-files}
+
 
 \bibliographystyle{plainnat}
 
@@ -291,15 +297,15 @@ files}
 
 \section{Appendix}
 
-This is where you can place additional information.
+NA
 
 \subsection{Symbolic Parameters}
 
-The definition of the test cases will call for SYMBOLIC\_CONSTANTS.
-Their values are defined in this section for easy maintenance.
+NA
 
 \subsection{Usability Survey Questions?}
 
-This is a section that would be appropriate for some teams.
+NA
 
 \end{document}
+
