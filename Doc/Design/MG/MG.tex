@@ -139,6 +139,7 @@ initial input data.
 \item[\refstepcounter{acnum} \actheacnum \label{AC6}:] The implementation of the Price Momentum
 \item[\refstepcounter{acnum} \actheacnum \label{AC7}:] The implementation of the Prediction
 \item[\refstepcounter{acnum} \actheacnum \label{AC8}:] The format of the result output 
+\item[\refstepcounter{acnum} \actheacnum \label{AC9}:] The setting of the Spark platform
 \end{description}
 
 \subsection{Unlikely Changes} \label{SecUchange}
@@ -169,12 +170,13 @@ actually be implemented.
 \begin{description}
 \item [\refstepcounter{mnum} \mthemnum \label{mHH}:] Hardware-Hiding Module
 \item [\refstepcounter{mnum} \mthemnum \label{mInput}:] Data Input Module
-\item [\refstepcounter{mnum} \mthemnum \label{mPlot}:] Data Plot Module
 \item [\refstepcounter{mnum} \mthemnum \label{mKernelling}:]Kernelling Module
 \item [\refstepcounter{mnum} \mthemnum \label{mVolatility}:] Price Volatility Module
 \item [\refstepcounter{mnum} \mthemnum \label{mMomentum}:] Price Momentum Module
 \item [\refstepcounter{mnum} \mthemnum \label{mPrediction}:] Stock Prediction Module
 \item [\refstepcounter{mnum} \mthemnum \label{mOutput}:] Output Module
+\item [\refstepcounter{mnum} \mthemnum \label{mSpark}:] Spark Module
+\item [\refstepcounter{mnum} \mthemnum \label{mPlot}:] Data Plot Module
 \end{description}
 
 
@@ -189,15 +191,16 @@ actually be implemented.
 \midrule
 
 \multirow{7}{0.3\textwidth}{Behaviour-Hiding Module}& Data Input Module\\
-
 & Kernelling Module\\ 
 & Price Volatility Module\\
 & Price Momentum Module\\
 & Stock Prediction Module\\
+& Output Module\\
+& Spark Module\\
 \midrule
 
-\multirow{3}{0.3\textwidth}{Software Decision Module} & Data Plot Module\\
-& Output Module\\
+\multirow{1}{0.3\textwidth}{Software Decision Module} & Data Plot Module\\
+
 
 \bottomrule
 
@@ -295,6 +298,19 @@ input module.
 \item[Implemented By:] [Stock Prediction System]
 \end{description}
 
+\subsubsection{Output Module (\mref{mOutput})}
+\begin{description}
+\item[Secrets:] Display the result of the calculation
+\item[Services:] Display the result (Increase or Decrease) by short term and long term
+\item[Implemented By:] [Stock Prediction System]
+\end{description}
+
+\subsubsection{Spark Module (\mref{mSpark})}
+\begin{description}
+\item[Secrets:] Transfer data between driver and workers through RDD format
+\item[Services:] It provides a distributed system to separate the work from one single machine to a set of workers. Driver assigns the data from Input Module to its workers and workers will do the actual computation based on the data and return the results to the driver.
+\item[Implemented By:] [Stock Prediction System]
+\end{description}
 
 \subsection{Software Decision Module}
 
@@ -316,13 +332,7 @@ do not provide direct interaction with the user.
 \item[Implemented By:] Python library
 \end{description}
 
-\subsubsection{Output Module (\mref{mOutput})}
-\begin{description}
-\item[Secrets:] Display the result of the calculation
-\item[Services:] Display the result (Increase or Decrease) by short term and long term
-\item[Implemented By:] [Stock Prediction System]
-\end{description}
-\subsubsection{Etc.}
+
 
 \section{Traceability Matrix} \label{SecTM}
 
@@ -339,7 +349,7 @@ requirements and between the modules and the anticipated changes.
 \midrule
 R1 & \mref{mInput}\\
 R2 & \mref{mPlot}\\
-R3 & \mref{mKernelling},\mref{mVolatility},\mref{mMomentum},\mref{mPrediction}\\
+R3 & \mref{mKernelling},\mref{mVolatility},\mref{mMomentum},\mref{mPrediction},\mref{mSpark}\\
 R4 & \mref{mInput}\\
 R5 & \mref{mOutput}\\
 
@@ -358,11 +368,12 @@ R5 & \mref{mOutput}\\
 \acref{AC1} & \mref{mHH}\\
 \acref{AC2} & \mref{mInput}\\
 \acref{AC3} & \mref{mPlot}\\
-\acref{AC4} & \mref{mKernelling},\mref{mPrediction}\\
-\acref{AC5} & \mref{mVolatility},\mref{mPrediction}\\
-\acref{AC6} & \mref{mMomentum},\mref{mPrediction}\\
+\acref{AC4} & \mref{mKernelling}\\
+\acref{AC5} & \mref{mVolatility}\\
+\acref{AC6} & \mref{mMomentum}\\
 \acref{AC7} & \mref{mPrediction}\\
 \acref{AC8} & \mref{mOutput}\\
+\acref{AC9} & \mref{mSpark}\\
 
 \bottomrule
 \end{tabular}
