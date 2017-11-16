@@ -72,17 +72,43 @@ y& The result between 1 and -1\\
 \section{General Information}
 This Document is a test plan of the software-Stock Prediction System which is a tool used to predict the stock prices using machine learning. 
 
+\wss{The text is better for version control, and for reading in other editors,
+  if you use a hard-wrap at 80 characters}
+
 \subsection{Purpose}
-This test plan describes the testing methods that will drive the testing of the Stock Prediction System and give a guide to the users about the QA. This document includes the descriptions of testing tool, testing functions, unit testing method and system test. Based on these testing, the users may cache the functional and non functional issues from the first release of the software and find out the improvement. 
+
+This test plan describes the testing methods that will drive the testing of the
+Stock Prediction System and give a guide to the users about the QA. This
+document includes the descriptions of testing tool, testing functions, unit
+testing method and system test. Based on these testing, the users may cache the
+functional and non functional issues from the first release of the software and
+find out the improvement.
+
 \subsection{Scope}
-The testing plan will cover both system testing and unit testing. The functions are the data input, data format validation, calculation of SVM, data plot, Spark RDD Distributed System, and the output of the result. Basically every part of the system will be tested.In this plan, most of the testing will be done by unit testing.
+
+The testing plan will cover both system testing and unit testing. The functions
+are the data input, data format validation, calculation of SVM, data plot, Spark
+RDD Distributed System, and the output of the result. Basically every part of
+the system will be tested.In \wss{proof read} this plan, most of the testing
+will be done by unit testing.
+
+\wss{An explicit web-link to your GitHub repo would be nice.}
+
+\wss{Explicitly state programming language}
+
+\wss{Reference your SRS document}
+
 \subsection{Overview of Document}
-This document explains the testing plan for the software - Stock Prediction System. It includes the briefcase of software description, the different testing methods - unit testing and integration testing, testing tools. It will cover both functional and non functional requirements. 
+This document explains the testing plan for the software - Stock Prediction
+System. It includes the briefcase of software description, the different testing
+methods - unit testing and integration testing, testing tools. It will cover
+both functional and non functional requirements.
 \section{Plan}
 In this section, the general description of the testing plan for the software and corresponding testing tools will be introduced.
 \subsection{Software Description}
 The Stock Prediction System is used to analyze the future trend of stocks. The prediction was provided by machine learning algorithms based on the historical data. 
-The system will be run on a big data platform (Spark), in order to obtain the more accurate results. In this case, we need to setup a distributed system to support Spark.
+The system will be run on a big data platform (Spark), in order to \wss{replace
+  ``in order to'' with ``to''} obtain the more accurate results. In this case, we need to setup a distributed system to support Spark.
 \subsection{Test Team}
 
 Renjie Zhang
@@ -93,7 +119,7 @@ NA
 Python unit testing : This framework was included in Python standard library. It is easy to use by people familiar with the xUnit frameworks, strong support for test organization and reuse via test suites\\
 Wing : A popular Python IDE which contents the code checking and indent correction.\\
 PyChecker (Optional) : A source checking tools which finds problems that are typically caught by a compiler for less dynamic languages; imports each module before checking it.\\
-
+\wss{good idea to use PyChecker}
 
 
 % \subsection{Testing Schedule}
@@ -126,9 +152,22 @@ Type: Functional, Manual
 Initial State: NA
 Input: Data from the file
 Output: Successful message
-How test will be performed: System have to ensure the data type and format is correct for each column of the file such as the pattern of the date, the formats of the price and number of digits of decimals. Shown in Figure 1
+How test will be performed: System have to ensure the data type and format is
+correct for each column of the file such as the pattern of the date, the formats
+of the price and number of digits of decimals. Shown in Figure 1 \wss{End
+  sentences with a period.} \wss{Use cross-referencing in LaTeX, rather than
+  hard coding the values.}  \wss{You shouldn't be saying ``such as'' in your
+  test description.  You should describe everything that you are looking for.
+  What do you do if the data is in the incorrect format?  What could go wrong?
+  Where are the test cases to ensure that your software behaves correctly in
+  those situations?}
 
-~\newline
+\wss{Your test description is not specific enough.  What will the contents of
+  the file b?  If the data is difficult to specify, maybe you could point to a
+  sample file in your repo that you are going to use?  Your test plan document
+  could then point to the file in the repo.}
+
+  ~\newline
 \begin{figure}[h!]
 \begin{center}
 %\rotatebox{-90}
@@ -142,7 +181,15 @@ How test will be performed: System have to ensure the data type and format is co
 \end{enumerate}
 
 \subsubsection{Distributed System}
-This section focus on the distributed system of Spark platform. It guides the users to test the data flow on the spark system. RDD is the format of data flow in Spark. testers need to double check the data was distributed into each workers through RDD.
+This section focus on the distributed system of Spark platform. It guides the
+users to test the data flow on the spark system. RDD is the format of data flow
+in Spark. testers need to double check the data was distributed into each
+workers through RDD.
+
+\wss{This description doesn't have enough detail.  What is the array that will
+  be sent to each worker?  What is the mark?  Provide enough information that
+  someone (other than you) could write the test.}
+
 \paragraph{ Spark RDD Testing}
 
 
@@ -150,7 +197,7 @@ This section focus on the distributed system of Spark platform. It guides the us
 
 \item{Data is distributed to workers\\}
 
-Type: Functional, Manual, Static etc.
+Type: Functional, Manual, Static etc. \wss{You shouldn't use etc.\ here}
 Initial State: NA
 Input: An Array from the driver
 Output: An updated array with marks of each worker
@@ -193,6 +240,8 @@ How test will be performed: The detail of the functions related to SVM Calculati
 
 \end{enumerate}
 
+\wss{If SVM is a unit test, then it shouldn't also appear here.}
+
 \subsection{Tests for Non functional Requirements}
 Non functional requirements are not as prior as functional requirements, but it is still necessary to have tests on them in order to improve the software performance and quality.
 \subsubsection{Big Data System Testing}
@@ -211,6 +260,10 @@ How test will be performed: It is a good way to increase the performance by incr
 
 
 \end{enumerate}
+
+\wss{Not enough detail.  How many workers are you going to experiment with?
+  What test case are you going to get them to perform?  What are the axes on the
+  graph you are going to produce as output of the testing?}
 
 \newpage
 \subsection{Traceability Between Test Cases and Requirements}
@@ -235,6 +288,9 @@ Performance Testing & & & & & & X& \\ \hline
 \caption{Traceability Matrix Showing the Connections Between Requirements and Test Cases}
 \label{Table:R_trace}
 \end{table}
+
+\wss{If you use shorter names for the column headings, it will fit better on the
+  page.}
 
 % \section{Tests for Proof of Concept}
 
@@ -288,6 +344,10 @@ $y=\beta _0+\sum {a_iy_iK(x(i),x)}$\\
 
 \end{enumerate} 
 
+\wss{As mentioned previously, you need to be more specific with your test
+  cases.  What are the values of the inputs and the expected outputs?  You want
+  test cases that someone else can directly build from the information you have
+  provided.}
 
 \bibliographystyle{plainnat}
 
