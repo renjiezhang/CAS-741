@@ -142,6 +142,14 @@ initial input data.
 \item[\refstepcounter{acnum} \actheacnum \label{AC9}:] The setting of the Spark platform
 \end{description}
 
+\wss{Your design is more specific to Spark than you likely need it to be.  There
+  are other big data processing frameworks and engines.  Why not design
+  generically with the data processing engine as an anticipate change.  You can
+  implement with the Spark ``module,'' but leave it open for change.
+  Technically for easier changeability you would have a generic interface in
+  your MIS, but for the purpose of your project, you can use the Spark
+  interface as your generic interface.}
+
 \subsection{Unlikely Changes} \label{SecUchange}
 
 The module design should be as general as possible. However, a general system is
@@ -156,7 +164,13 @@ decisions will be changed.
 (Input: File and/or Keyboard, Output: File, Memory, and/or Screen).
 \item[\refstepcounter{ucnum} \uctheucnum \label{UC2}:] There will always be
 a source of input data external to the software.
-\item[\refstepcounter{ucnum} \uctheucnum \label{UC3}:] There will be another big data platform to replace Spark
+\item[\refstepcounter{ucnum} \uctheucnum \label{UC3}:] There will be another big
+  data platform to replace Spark \wss{As I mentioned above, it would be nice to
+    be more general.  However, you can make this an unlikely change if you want
+    to.  Just make sure that this is listed as a constraint in your SRS (I
+    haven't checked whether it is) and you should still include a module in your
+    design for the big data engine.  You can call the module Spark, if this is
+    an unlikely change.}
 \item[\refstepcounter{ucnum} \uctheucnum \label{UC4}:] The change of algorithm method
 \end{description}
 
@@ -308,7 +322,14 @@ input module.
 \subsubsection{Spark Module (\mref{mSpark})}
 \begin{description}
 \item[Secrets:] Transfer data between driver and workers through RDD format
-\item[Services:] It provides a distributed system to separate the work from one single machine to a set of workers. Driver assigns the data from Input Module to its workers and workers will do the actual computation based on the data and return the results to the driver.
+  \wss{What is RDD format?  This should be expanded, and likely in your table of acronyms.}
+\item[Services:] It provides a distributed system to separate the work from one
+  single machine to a set of workers. Driver assigns the data from Input Module
+  to its workers and workers will do the actual computation based on the data
+  and return the results to the driver. \wss{I like the description here better
+    than the corresponding AC where you said ``setting of the Spark platform.''
+    The anticipated change should be modified to be more like the secret of this
+    module.}
 \item[Implemented By:] [Stock Prediction System]
 \end{description}
 
@@ -401,6 +422,10 @@ because they use modules from the lower levels.
 \caption{Use hierarchy among modules}
 \label{FigUH}
 \end{figure}
+
+\wss{Good start for the design.  Remember that you may have to modify the design
+  as you work through the MIS and gain a deeper understanding of how your
+  modules interact.}
 
 %\section*{References}
 
