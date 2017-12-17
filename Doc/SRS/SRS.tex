@@ -170,29 +170,67 @@ $C$ & \si[per-mode=symbol] {price} & stock daily price\\
 \pagenumbering{arabic}
 
 \section{Introduction}
-Stock price prediction is a popular and challenging topic nowadays.There were serveral prediction models such as linear statistical time series models. With the development of Big Data and Machine learning, the prediction technology may have a significant improvement. 
-This project will introduce a stock prediction system is used to analyze the future trend of stocks. The prediction was provided by machine learning algorithms based on the historical data. 
-The system will be run on a big data platform (Spark), in order to obtain the more accurate results. In this case, we need to setup a distributed system to support Spark.
+
+Stock price prediction is a popular and challenging topic nowadays.There were
+serveral \wss{spell check!} prediction models such as linear statistical time
+series models. With the development of Big Data and Machine learning, the
+prediction technology may have a significant improvement.  This project will
+introduce a stock prediction system is used to analyze the future trend of
+stocks. The prediction was provided by machine learning algorithms based on the
+historical data.  The system will be run on a big data platform (Spark), in
+order to obtain the more accurate results. In this case, we need to setup a
+distributed system to support Spark.
+
+\wss{The text is better for version control, and for reading in other editors,
+  if you use a hard-wrap at 80 characters}
 
 \subsection{Purpose of Document}
-The purpose of this document is to explain how to implement a machine learning system for stock price prediction.   With different algorithms and dataset, the system can be used for both short term and long term predictions.
-In this case, we will use Support Vector Machine to predict the future trend of stocks based on the daily historical data. 
+
+The purpose of this document is to explain how to implement a machine learning
+system for stock price prediction.  With different algorithms and dataset, the
+system can be used for both short term and long term predictions.  In this case,
+we will use Support Vector Machine to predict the future trend of stocks based
+on the daily historical data.
+
 \subsection{Scope of Requirements} 
-The purpose of this software is to give the user a reference by calculating the possibility of the future price change. For example, it may go up with a chance of xx percent and go down with a chance of xx percent. 
+
+The purpose of this software is to give the user a reference by calculating the
+possibility of the future price change. For example, it may go up with a chance
+of xx percent and go down with a chance of xx percent. 
+
 \subsection{Characteristics of Intended Reader} 
-Reader are not required to have any specific  background knowledge. However, it is very helpful to have some basic knowledge of big data, machine learning, especially Support Vector Machine.
+
+Reader are not required to have any specific background knowledge. However, it
+is very helpful to have some basic knowledge of big data, machine learning,
+especially Support Vector Machine. \wss{For the characteristics of intended
+  readers for this optional knowledge try to be more specific about the
+  education.  What degree?  What course areas?  What level?}  \wss{Don't you
+  think the reader should know something about the stock market?}
+
 \subsection{Organization of Document}
-This document will cover the configuration of the Spark distributed system for big data, the workflow of the program and the explaination of SVM algorithm.
+This document will cover the configuration of the Spark distributed system for
+big data, the workflow of the program and the explaination \wss{spell check!} of SVM algorithm.
+\wss{You should mention the source of the template~\cite{SmithAndLai2005,
+    SmithEtAl2007}.}
 \section{General System Description}
 
-The project have an interface to let the user choose the company, but on the demo there will be only one company to display. It loads the historical data provided by the user and caculate the future trend. A plot graph will be displayed  as well. There will be two results come out, one is the possibility of increase and the other is of decrease.
+The project have an interface to let the user choose the company, but on the
+demo there will be only one company to display. It loads the historical data
+provided by the user and caculate \wss{spell check!} the future trend. A plot
+graph will be displayed  as well. There will be two results come out, one is the
+possibility of increase and the other is of decrease.  \wss{Is this project the
+  demo you are talking about?  It is better if your SRS is for the full project
+  and you add a section at the end of the document to explain how the project
+  will be developed starting with a version where the user cannot select the company.}
 
 \subsection{System Context}
 
 \begin{itemize}
 \item User Responsibilities:
 \begin{itemize}
-\item Prepare the historical data file
+\item Prepare the historical data file \wss{Do you say the contents of this file
+    somewhere in your SRS?  The format doesn't matter (that is a design decision
+    for later), but the contents should be specified.}
 \item Decide the date time range of the historical period
 \item Update the historical data set
 \end{itemize}
@@ -200,7 +238,7 @@ The project have an interface to let the user choose the company, but on the dem
 \begin{itemize}
 \item Load data  from files and display errors when the loading failes
 \item Display the plot of the stock
-\item Predict the future trent based on the historical data with the possibilities
+\item Predict the future trent \wss{trend} based on the historical data with the possibilities
 \end{itemize}
 \end{itemize}
 
@@ -209,17 +247,34 @@ The project have an interface to let the user choose the company, but on the dem
 The end user of \progname{} should have some basic knowledge of machine learning algorithm (Support Vector Machine).
 
 \subsection{System Constraints}
-The system supports multiple operating systems. However, since it is running on Spark, it is more stable with Linux/Ubuntu. The program needs a distributed systtem consist of at lease three computers, one will be the driver of Spark, the others will be the workers.
+
+The system supports multiple operating systems. However, since it is running on
+Spark, it is more stable with Linux/Ubuntu. The program needs a distributed
+systtem consist of at lease three computers, one will be the driver of Spark,
+the others will be the workers.
 
 \section{Specific System Description}
 
-This system is used to predict the future trend of stocks based on the historical data from Yahoo Finance using Support Vector Machine algorithm. The data from other resource is acceabled if they fit the format. The programming language will be Python.
+This system is used to predict the future trend of stocks based on the
+historical data from Yahoo Finance using Support Vector Machine algorithm. The
+data from other resource is acceabled \wss{spell check!} if they fit the
+format. The programming language will be Python.  \wss{Requirements
+  documentation should be abstract.  There is no reason to specify the
+  programming language at this time.}
 
 \subsection{Problem Description} \label{Sec_pd}
 
-Stock Prediction is a very important topic in financial industry. It is  complicated because the stock price was affected by too many factors. One of the common prediction technology is to train and test the historical data using machin learning.
-\progname{} is a tool to predict stocks based on machine learning and big data. It implements SVM classifier to train and test the historical data.  With the development of Big Data and Machine learning, it is possible to obtain an more accurate prediction result. 
-To delivery a more accurate result, a large scale of data is needed. In this case it is nessary to run the program on a distributed system platform such as Spark to accerate the caculation speed.
+Stock Prediction is a very important topic in financial industry. It is
+complicated because the stock price was affected by too many factors. One of the
+common prediction technology is to train and test the historical data using
+machin \wss{spell check!} learning.  \progname{} is a tool to predict stocks
+based on machine learning and big data. It implements SVM classifier to train
+and test the historical data.  With the development of Big Data and Machine
+learning, it is possible to obtain an more accurate prediction result.  To
+delivery a more accurate result, a large scale of data is needed. In this case
+it is nessary \wss{spell check!} to run the program on a distributed system
+platform such as Spark to accerate \wss{spell check!} the caculation \wss{spell
+  check! - and elsewhere} speed.
 
 
 \subsubsection{Terminology and  Definitions}
@@ -231,7 +286,9 @@ easier to correctly understand the requirements:
 \begin{itemize}
 
 \item Support Vector Machine  :
-A supervised learning model with associated learning algorithms that analyze data used for classification and regression analysis.
+A supervised learning model with associated learning algorithms that analyze
+data used for classification and regression analysis. \wss{Some citations would
+  be helpful.}
 \item Spark :
 A big data platform that save and retrive data from different machines in a format called RDD(Resilient Distributed Datasets). It provides a set of machine learning libraries and support different types of programming lanauges. 
 \item RDD :
@@ -245,7 +302,9 @@ A training set is a set of data used to discover potentially predictive relation
 
 \subsubsection{Physical System Description}
 
-The physical system of \progname{}, is a distributed system consists by a driver and 2-3 works as shown in Figure~?,
+The physical system of \progname{}, is a distributed system consists by a driver
+and 2-3 works as shown in Figure~?, \wss{Reference the figure using the ref
+  command, like Figure~\ref{Spark}}
 includes the following elements:
 
 \begin{itemize}
@@ -274,7 +333,10 @@ The workers are the machines which do the actual jobs and they are called slaves
 
 \begin{itemize}
 
-\item Predicture Result\refstepcounter{goalnum}\thegoalnum \label{G_meaningfulLabel}: A result of the future stock price with its probability.
+\item Predicture
+  Result\refstepcounter{goalnum}\thegoalnum \label{G_meaningfulLabel}: A result
+  of the future stock price with its probability. \wss{What is the input?  Is it
+    just predicting one price, or a sequence of price with probabilities?}
 
 \end{itemize}
 
@@ -302,7 +364,8 @@ Efficient Markets Hypothesis holds true. It posits that stock prices already ref
 Independent identically distributed. A sequence or other collection of random variables is independent and identically distributed (i.i.d. or iid or IID) if each random variable has the same probability distribution as the others and all are mutually independent.
 
 \item[A\refstepcounter{assumpnum}\theassumpnum \label{Ass3}:]
-All companies are active on NASDAQ during the period of 2003-2012.
+All companies are active on NASDAQ during the period of 2003-2012.  \wss{Why
+  this date?  Why is this coming up as an assumption?}
 
 \item[A\refstepcounter{assumpnum}\theassumpnum \label{Ass4}:]
 The historical data is daily.
@@ -331,13 +394,17 @@ on.
   Description & 
 	     
 The above equation gives a linear classification in a higher dimensional space and linearly classify in that space.   $x$ is an n-dimensional feature vector $x=(X_1,.....X_n)$. $y\in \left \{ 1,-1 \right \}$ is the label, in a range of 1 and -1.
-This SVM replaces the inner product with a more general kernel function K which allows the input to be mapped to higher-dimensions. In this case, RBF Kernel is used for price forcasting.    \\
+This SVM replaces the inner product with a more general kernel function K which
+                allows the input to be mapped to higher-dimensions. In this
+                case, RBF Kernel is used for price forcasting.    \wss{Not all
+                of the symbols are defined.  The meaning of RBF is not given.
+                The range of summation indices is not given.}\\
   \hline
   Source &
            \url{https://www.cs.princeton.edu/sites/default/files/uploads/saahil_madge.pdf}\\
   % The above web link should be replaced with a proper citation to a publication
   \hline
-  Ref.\ By & \ddref{StockPV} \\
+  Ref.\ By & \ddref{StockPV} \wss{DD1 does not actually reference T1.}\\
   \hline
 \end{tabular}
 \end{minipage}\\
@@ -356,11 +423,14 @@ This SVM replaces the inner product with a more general kernel function K which 
   \hline
   Label&\bf Specific Kernel Function\\
   \hline
- Equation&  $k\left (X_i,X_k\right )=\exp \left ( -\frac1{\delta^2}\sum_{n}^{j=1}(X_{ij}-X_{kj})^2 \right )$ \\
+ Equation&  $k\left (X_i,X_k\right )=\exp \left (
+           -\frac1{\delta^2}\sum_{n}^{j=1}(X_{ij}-X_{kj})^2 \right )$
+           \wss{Wasn't this capital $K$ earlier?}\\
   \hline
   Description & 
 	     
-Where  $delta$ is known as the bandwidth of the kernel function  \\
+Where  $delta$ is known as the bandwidth of the kernel function  \wss{You should
+  define all of the symbols here so that T2 is completely documented.}\\
   \hline
   Source &
            \url{https://www.cs.princeton.edu/sites/default/files/uploads/saahil_madge.pdf}\\
@@ -403,7 +473,7 @@ Symbol &$\sigma_s$\\
 \hline
 % Units& $Mt^{-3}$\\
 % \hline
-  SI Units & \% percentage\\
+  SI Units & \% percentage \wss{percentage isn't a unit}\\
   \hline
   Equation&$\frac{\sum_{i=t-n+1}^{t} \frac{C_i-C_{i-1}}{C{i-1}}}{n}$  
 
@@ -443,7 +513,11 @@ Symbol & NA\\
   Equation& $\frac{\sum_{i=t-n+1}^{t} y}{n}$  \\
   \hline
   Description & 
-       This is an average of the given stock’s momentum over the past $n$ days. Each day is labeled 1 if closing price that day is higher than the day before, and −1 if the price is lower than the day before  \\
+       This is an average of the given stock’s momentum over the past $n$
+                days. Each day is labeled 1 if closing price that day is higher
+                than the day before, and -1 \wss{I had to modify the minus sign
+                so that the correct symbol would show up in the generated pdf
+                file.} if the price is lower than the day before  \\
   \hline
   Sources&
    \url{https://www.cs.princeton.edu/sites/default/files/uploads/saahil_madge.pdf}\\
@@ -575,8 +649,11 @@ The result of 1 stands for increase and -1 means decrease.
  \end{center}
  \end{figure}
 
+\wss{Figure 2 isn't referenced by the text anywhere.  Update -- I found it referenced as
+  figure 2.  Please be consistent in your capitalization.}
 
-
+\wss{It is unclear how IM1 relates to the data definitions or theoretical
+  models.  A probability is mentioned, but I don't see it in the IM?}
 
 \subsubsection{Data Constraints} \label{sec_DataConstraints}    
 
@@ -663,9 +740,12 @@ The required functions are not complex in the system. It basiclly reads a data f
 \item[R\refstepcounter{reqnum}\thereqnum \label{R_Output}:]  There will be an result about the prediction. The result shows the stock will go up or go down with a probability in a percentage format.
 \end{itemize}
 
+\wss{Functional requirements should reference the instance models.}
+
 \subsection{Nonfunctional Requirements}
 
-The system needs to have a more friendly interface and the layout of the plot graph.
+The system needs to have a more friendly interface and the layout of the plot
+graph. \wss{More information on the NFRs would improve this document.}
 
 \section{Likely Changes}    
 

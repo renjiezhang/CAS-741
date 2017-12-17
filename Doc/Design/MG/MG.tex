@@ -9,13 +9,14 @@
 \usepackage{float}
 \usepackage{hyperref}
 \hypersetup{
-    colorlinks,
-    citecolor=black,
-    filecolor=black,
-    linkcolor=red,
-    urlcolor=blue
+colorlinks,
+citecolor=black,
+filecolor=black,
+linkcolor=red,
+urlcolor=blue
 }
-\usepackage[round]{natbib}
+
+\input{../../Comments}
 
 \newcounter{acnum}
 \newcommand{\actheacnum}{AC\theacnum}
@@ -29,37 +30,33 @@
 \newcommand{\mthemnum}{M\themnum}
 \newcommand{\mref}[1]{M\ref{#1}}
 
-\title{SE 3XA3: Software Requirements Specification\\Title of Project}
-
-\author{Team \#, Team Name
-		\\ Student 1 name and macid
-		\\ Student 2 name and macid
-		\\ Student 3 name and macid
-}
-
-\date{\today}
-
-\input{../../Comments}
-
 \begin{document}
+
+\title{Module Guide: Stock Prediction System} 
+\author{Renjie Zhang}
+\date{\today}
 
 \maketitle
 
 \pagenumbering{roman}
-\tableofcontents
-\listoftables
-\listoffigures
 
-\begin{table}[bp]
-\caption{\bf Revision History}
+\section{Revision History}
+
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
-Date 1 & 1.0 & Notes\\
-Date 2 & 1.1 & Notes\\
+01/11/2017 1 & 1.0 & create\\
+02/11/2017 2 & 1.1 & update\\
 \bottomrule
 \end{tabularx}
-\end{table}
+
+\newpage
+
+\tableofcontents
+
+\listoftables
+
+\listoffigures
 
 \newpage
 
@@ -68,41 +65,41 @@ Date 2 & 1.1 & Notes\\
 \section{Introduction}
 
 Decomposing a system into modules is a commonly accepted approach to developing
-software.  A module is a work assignment for a programmer or programming
-team~\citep{ParnasEtAl1984}.  We advocate a decomposition
-based on the principle of information hiding~\citep{Parnas1972a}.  This
+software. A module is a work assignment for a programmer or programming
+team~\citep{ParnasEtAl1984}. We advocate a decomposition
+based on the principle of information hiding~\citep{Parnas1972a}. This
 principle supports design for change, because the ``secrets'' that each module
-hides represent likely future changes.  Design for change is valuable in SC,
+hides represent likely future changes. Design for change is valuable in SC,
 where modifications are frequent, especially during initial development as the
-solution space is explored.  
+solution space is explored. 
 
 Our design follows the rules layed out by \citet{ParnasEtAl1984}, as follows:
 \begin{itemize}
 \item System details that are likely to change independently should be the
-  secrets of separate modules.
+secrets of separate modules.
 \item Each data structure is used in only one module.
 \item Any other program that requires information stored in a module's data
-  structures must obtain it by calling access programs belonging to that module.
+structures must obtain it by calling access programs belonging to that module.
 \end{itemize}
 
 After completing the first stage of the design, the Software Requirements
 Specification (SRS), the Module Guide (MG) is developed~\citep{ParnasEtAl1984}. The MG
 specifies the modular structure of the system and is intended to allow both
-designers and maintainers to easily identify the parts of the software.  The
+designers and maintainers to easily identify the parts of the software. The
 potential readers of this document are as follows:
 
 \begin{itemize}
 \item New project members: This document can be a guide for a new project member
-  to easily understand the overall structure and quickly find the
-  relevant modules they are searching for.
+to easily understand the overall structure and quickly find the
+relevant modules they are searching for.
 \item Maintainers: The hierarchical structure of the module guide improves the
-  maintainers' understanding when they need to make changes to the system. It is
-  important for a maintainer to update the relevant sections of the document
-  after changes have been made.
+maintainers' understanding when they need to make changes to the system. It is
+important for a maintainer to update the relevant sections of the document
+after changes have been made.
 \item Designers: Once the module guide has been written, it can be used to
-  check for consistency, feasibility and flexibility. Designers can verify the
-  system in various ways, such as consistency among modules, feasibility of the
-  decomposition, and flexibility of the design.
+check for consistency, feasibility and flexibility. Designers can verify the
+system in various ways, such as consistency among modules, feasibility of the
+decomposition, and flexibility of the design.
 \end{itemize}
 
 The rest of the document is organized as follows. Section
@@ -132,12 +129,26 @@ adapted here is called design for
 change.
 
 \begin{description}
-\item[\refstepcounter{acnum} \actheacnum \label{acHardware}:] The specific
-  hardware on which the software is running.
-\item[\refstepcounter{acnum} \actheacnum \label{acInput}:] The format of the
-  initial input data.
-\item ...
+\item[\refstepcounter{acnum} \actheacnum \label{AC1}:] The specific
+hardware on which the software is running.
+\item[\refstepcounter{acnum} \actheacnum \label{AC2}:] The format of the
+initial input data.
+\item[\refstepcounter{acnum} \actheacnum \label{AC3}:] The layout of the plot
+\item[\refstepcounter{acnum} \actheacnum \label{AC4}:] The implementation of the Kernel function
+\item[\refstepcounter{acnum} \actheacnum \label{AC5}:] The implementation of the Price Volatility
+\item[\refstepcounter{acnum} \actheacnum \label{AC6}:] The implementation of the Price Momentum
+\item[\refstepcounter{acnum} \actheacnum \label{AC7}:] The implementation of the Prediction
+\item[\refstepcounter{acnum} \actheacnum \label{AC8}:] The format of the result output 
+\item[\refstepcounter{acnum} \actheacnum \label{AC9}:] The setting of the Spark platform
 \end{description}
+
+\wss{Your design is more specific to Spark than you likely need it to be.  There
+  are other big data processing frameworks and engines.  Why not design
+  generically with the data processing engine as an anticipate change.  You can
+  implement with the Spark ``module,'' but leave it open for change.
+  Technically for easier changeability you would have a generic interface in
+  your MIS, but for the purpose of your project, you can use the Spark
+  interface as your generic interface.}
 
 \subsection{Unlikely Changes} \label{SecUchange}
 
@@ -149,11 +160,18 @@ will potentially need to be modified. Hence, it is not intended that these
 decisions will be changed.
 
 \begin{description}
-\item[\refstepcounter{ucnum} \uctheucnum \label{ucIO}:] Input/Output devices
-  (Input: File and/or Keyboard, Output: File, Memory, and/or Screen).
-\item[\refstepcounter{ucnum} \uctheucnum \label{ucInput}:] There will always be
-  a source of input data external to the software.
-\item ...
+\item[\refstepcounter{ucnum} \uctheucnum \label{UC1}:] Input/Output devices
+(Input: File and/or Keyboard, Output: File, Memory, and/or Screen).
+\item[\refstepcounter{ucnum} \uctheucnum \label{UC2}:] There will always be
+a source of input data external to the software.
+\item[\refstepcounter{ucnum} \uctheucnum \label{UC3}:] There will be another big
+  data platform to replace Spark \wss{As I mentioned above, it would be nice to
+    be more general.  However, you can make this an unlikely change if you want
+    to.  Just make sure that this is listed as a constraint in your SRS (I
+    haven't checked whether it is) and you should still include a module in your
+    design for the big data engine.  You can call the module Spark, if this is
+    an unlikely change.}
+\item[\refstepcounter{ucnum} \uctheucnum \label{UC4}:] The change of algorithm method
 \end{description}
 
 \section{Module Hierarchy} \label{SecMH}
@@ -165,7 +183,14 @@ actually be implemented.
 
 \begin{description}
 \item [\refstepcounter{mnum} \mthemnum \label{mHH}:] Hardware-Hiding Module
-\item ...
+\item [\refstepcounter{mnum} \mthemnum \label{mInput}:] Data Input Module
+\item [\refstepcounter{mnum} \mthemnum \label{mKernelling}:]Kernelling Module
+\item [\refstepcounter{mnum} \mthemnum \label{mVolatility}:] Price Volatility Module
+\item [\refstepcounter{mnum} \mthemnum \label{mMomentum}:] Price Momentum Module
+\item [\refstepcounter{mnum} \mthemnum \label{mPrediction}:] Stock Prediction Module
+\item [\refstepcounter{mnum} \mthemnum \label{mOutput}:] Output Module
+\item [\refstepcounter{mnum} \mthemnum \label{mSpark}:] Spark Module
+\item [\refstepcounter{mnum} \mthemnum \label{mPlot}:] Data Plot Module
 \end{description}
 
 
@@ -179,19 +204,18 @@ actually be implemented.
 {Hardware-Hiding Module} & ~ \\
 \midrule
 
-\multirow{7}{0.3\textwidth}{Behaviour-Hiding Module} & ?\\
-& ?\\
-& ?\\
-& ?\\
-& ?\\
-& ?\\
-& ?\\ 
-& ?\\
+\multirow{7}{0.3\textwidth}{Behaviour-Hiding Module}& Data Input Module\\
+& Kernelling Module\\ 
+& Price Volatility Module\\
+& Price Momentum Module\\
+& Stock Prediction Module\\
+& Output Module\\
+& Spark Module\\
 \midrule
 
-\multirow{3}{0.3\textwidth}{Software Decision Module} & {?}\\
-& ?\\
-& ?\\
+\multirow{1}{0.3\textwidth}{Software Decision Module} & Data Plot Module\\
+
+
 \bottomrule
 
 \end{tabular}
@@ -214,7 +238,7 @@ module. The \emph{Services} field specifies \emph{what} the module will do
 without documenting \emph{how} to do it. For each module, a suggestion for the
 implementing software is given under the \emph{Implemented By} title. If the
 entry is \emph{OS}, this means that the module is provided by the operating
-system or by standard programming language libraries.  Also indicate if the
+system or by standard programming language libraries. Also indicate if the
 module will be implemented specifically for the software.
 
 Only the leaf modules in the
@@ -227,51 +251,109 @@ selected.
 
 \begin{description}
 \item[Secrets:]The data structure and algorithm used to implement the virtual
-  hardware.
+hardware.
 \item[Services:]Serves as a virtual hardware used by the rest of the
-  system. This module provides the interface between the hardware and the
-  software. So, the system can use it to display outputs or to accept inputs.
+system. This module provides the interface between the hardware and the
+software. So, the system can use it to display outputs or to accept inputs.
 \item[Implemented By:] OS
 \end{description}
 
 \subsection{Behaviour-Hiding Module}
 
 \begin{description}
-\item[Secrets:]The contents of the required behaviours.
+\item[Secrets:]The contents of the required behaviors.
 \item[Services:]Includes programs that provide externally visible behaviour of
-  the system as specified in the software requirements specification (SRS)
-  documents. This module serves as a communication layer between the
-  hardware-hiding module and the software decision module. The programs in this
-  module will need to change if there are changes in the SRS.
+the system as specified in the software requirements specification (SRS)
+documents. This module serves as a communication layer between the
+hardware-hiding module and the software decision module. The programs in this
+module will need to change if there are changes in the SRS.
 \item[Implemented By:] --
 \end{description}
 
-\subsubsection{Input Format Module (\mref{mInput})}
+\subsubsection{Data Input Module (\mref{mInput})}
 
 \begin{description}
 \item[Secrets:]The format and structure of the input data.
-\item[Services:]Converts the input data into the data structure used by the
-  input parameters module.
-\item[Implemented By:] [Your Program Name Here]
+\item[Services:]Read the dataset file and convert the input data into the data structure used by the
+input module.
+\item[Implemented By:] [Stock Prediction System]
 \end{description}
 
-\subsubsection{Etc.}
+\subsubsection{Kernelling Module (\mref{mKernelling})}
 
+\begin{description}
+\item[Secrets:] The Kernelling function implementation.
+\item[Services:] Convert the dataset from 2D to 3D classification using Kernelling function and parameters.
+\item[Implemented By:] [Stock Prediction System]
+\end{description}
+
+\subsubsection{Volatility Module (\mref{mVolatility})}
+
+\begin{description}
+\item[Secrets:] The Price Volatility and Index Volatility implementation.
+\item[Services:] Calculate the Price Volatility and Index Volatility by the price and dates from input data
+\item[Implemented By:] [Stock Prediction System]
+\end{description}
+
+
+\subsubsection{Momentum Module (\mref{mMomentum})}
+
+\begin{description}
+\item[Secrets:] The Price Momentum and Index Momentum implementation.
+\item[Services:]Calculate the Price Momentum and Index Momentum by the price and dates from input data
+\item[Implemented By:] [Stock Prediction System]
+\end{description}
+
+
+\subsubsection{Prediction Module (\mref{mPrediction})}
+\begin{description}
+\item[Secrets:]The Stock Prediction implementation.
+\item[Services:] Calculate the result of the prediction based on the Kernelling Function, Price/Index Volatility and Price/Index Momentum
+\item[Implemented By:] [Stock Prediction System]
+\end{description}
+
+\subsubsection{Output Module (\mref{mOutput})}
+\begin{description}
+\item[Secrets:] Display the result of the calculation
+\item[Services:] Display the result (Increase or Decrease) by short term and long term
+\item[Implemented By:] [Stock Prediction System]
+\end{description}
+
+\subsubsection{Spark Module (\mref{mSpark})}
+\begin{description}
+\item[Secrets:] Transfer data between driver and workers through RDD format
+  \wss{What is RDD format?  This should be expanded, and likely in your table of acronyms.}
+\item[Services:] It provides a distributed system to separate the work from one
+  single machine to a set of workers. Driver assigns the data from Input Module
+  to its workers and workers will do the actual computation based on the data
+  and return the results to the driver. \wss{I like the description here better
+    than the corresponding AC where you said ``setting of the Spark platform.''
+    The anticipated change should be modified to be more like the secret of this
+    module.}
+\item[Implemented By:] [Stock Prediction System]
+\end{description}
 
 \subsection{Software Decision Module}
 
 \begin{description}
 \item[Secrets:] The design decision based on mathematical theorems, physical
-  facts, or programming considerations. The secrets of this module are
-  \emph{not} described in the SRS.
+facts, or programming considerations. The secrets of this module are
+\emph{not} described in the SRS.
 \item[Services:] Includes data structure and algorithms used in the system that
-  do not provide direct interaction with the user. 
-  % Changes in these modules are more likely to be motivated by a desire to
-  % improve performance than by externally imposed changes.
+do not provide direct interaction with the user. 
+% Changes in these modules are more likely to be motivated by a desire to
+% improve performance than by externally imposed changes.
 \item[Implemented By:] --
 \end{description}
 
-\subsubsection{Etc.}
+\subsubsection{Plot Module (\mref{mPlot})}
+\begin{description}
+\item[Secrets:] Display the history of the stock by the plot of the price and date
+\item[Services:] Generate the plot based on the price and date from the input file
+\item[Implemented By:] Python library
+\end{description}
+
+
 
 \section{Traceability Matrix} \label{SecTM}
 
@@ -286,17 +368,12 @@ requirements and between the modules and the anticipated changes.
 \toprule
 \textbf{Req.} & \textbf{Modules}\\
 \midrule
-R1 & \mref{mHH}, \mref{mInput}, \mref{mParams}, \mref{mControl}\\
-R2 & \mref{mInput}, \mref{mParams}\\
-R3 & \mref{mVerify}\\
-R4 & \mref{mOutput}, \mref{mControl}\\
-R5 & \mref{mOutput}, \mref{mODEs}, \mref{mControl}, \mref{mSeqDS}, \mref{mSolver}, \mref{mPlot}\\
-R6 & \mref{mOutput}, \mref{mODEs}, \mref{mControl}, \mref{mSeqDS}, \mref{mSolver}, \mref{mPlot}\\
-R7 & \mref{mOutput}, \mref{mEnergy}, \mref{mControl}, \mref{mSeqDS}, \mref{mPlot}\\
-R8 & \mref{mOutput}, \mref{mEnergy}, \mref{mControl}, \mref{mSeqDS}, \mref{mPlot}\\
-R9 & \mref{mVerifyOut}\\
-R10 & \mref{mOutput}, \mref{mODEs}, \mref{mControl}\\
-R11 & \mref{mOutput}, \mref{mODEs}, \mref{mEnergy}, \mref{mControl}\\
+R1 & \mref{mInput}\\
+R2 & \mref{mPlot}\\
+R3 & \mref{mKernelling},\mref{mVolatility},\mref{mMomentum},\mref{mPrediction},\mref{mSpark}\\
+R4 & \mref{mInput}\\
+R5 & \mref{mOutput}\\
+
 \bottomrule
 \end{tabular}
 \caption{Trace Between Requirements and Modules}
@@ -309,18 +386,16 @@ R11 & \mref{mOutput}, \mref{mODEs}, \mref{mEnergy}, \mref{mControl}\\
 \toprule
 \textbf{AC} & \textbf{Modules}\\
 \midrule
-\acref{acHardware} & \mref{mHH}\\
-\acref{acInput} & \mref{mInput}\\
-\acref{acParams} & \mref{mParams}\\
-\acref{acVerify} & \mref{mVerify}\\
-\acref{acOutput} & \mref{mOutput}\\
-\acref{acVerifyOut} & \mref{mVerifyOut}\\
-\acref{acODEs} & \mref{mODEs}\\
-\acref{acEnergy} & \mref{mEnergy}\\
-\acref{acControl} & \mref{mControl}\\
-\acref{acSeqDS} & \mref{mSeqDS}\\
-\acref{acSolver} & \mref{mSolver}\\
-\acref{acPlot} & \mref{mPlot}\\
+\acref{AC1} & \mref{mHH}\\
+\acref{AC2} & \mref{mInput}\\
+\acref{AC3} & \mref{mPlot}\\
+\acref{AC4} & \mref{mKernelling}\\
+\acref{AC5} & \mref{mVolatility}\\
+\acref{AC6} & \mref{mMomentum}\\
+\acref{AC7} & \mref{mPrediction}\\
+\acref{AC8} & \mref{mOutput}\\
+\acref{AC9} & \mref{mSpark}\\
+
 \bottomrule
 \end{tabular}
 \caption{Trace Between Anticipated Changes and Modules}
@@ -334,7 +409,7 @@ provided. \citet{Parnas1978} said of two programs A and B that A {\em uses} B if
 correct execution of B may be necessary for A to complete the task described in
 its specification. That is, A {\em uses} B if there exist situations in which
 the correct functioning of A depends upon the availability of a correct
-implementation of B.  Figure \ref{FigUH} illustrates the use relation between
+implementation of B. Figure \ref{FigUH} illustrates the use relation between
 the modules. It can be seen that the graph is a directed acyclic graph
 (DAG). Each level of the hierarchy offers a testable and usable subset of the
 system, and modules in the higher level of the hierarchy are essentially simpler
@@ -342,10 +417,15 @@ because they use modules from the lower levels.
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{UsesHierarchy.png}
+\includegraphics[width=0.7\textwidth]{UsesHierarchy.png}
+
 \caption{Use hierarchy among modules}
 \label{FigUH}
 \end{figure}
+
+\wss{Good start for the design.  Remember that you may have to modify the design
+  as you work through the MIS and gain a deeper understanding of how your
+  modules interact.}
 
 %\section*{References}
 
