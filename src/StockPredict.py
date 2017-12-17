@@ -6,7 +6,7 @@ from sklearn.svm import SVC
 import datetime
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
-
+import pyspark
 
 # read the data
 def DataInput(filename):
@@ -17,6 +17,7 @@ startYear=2012
 endYear=2018
 companyList = ['AMZN','FB','GOOG','NFLX']
 companyDataSet=[]
+sc = pyspark.SparkContext('local[*]')
 # calculate price volatility array given company
 def GetPriceVolatility(daysAhead,numDays, priceArray):
 	# make price volatility array
@@ -52,6 +53,8 @@ def GetMomentum(daysAhead,numDays, priceArray):
 
 def Predict(company,daysAhead, numDays, ndaqVolatility, ndaqMomentum):
 	global stockData
+	global sc
+
 	#global daysAhead
 	# get price volatility and momentum for this company
 	
@@ -61,8 +64,8 @@ def Predict(company,daysAhead, numDays, ndaqVolatility, ndaqMomentum):
 	#companyDataSet.append(companyData)
 	companyPrices = list(companyData['Close'])
 	companyDates= list(companyData['Date'])
-	volatilityArray = GetPriceVolatility(daysAhead,numDays, companyPrices)
-	momentumArray = GetMomentum(daysAhead,numDays, companyPrices)
+	volatilityArray =  sc.parallelize(GetPriceVolatility(daysAhead,numDays, companyPrices)).collect()
+	momentumArray =  sc.parallelize(GetMomentum(daysAhead,numDays, companyPrices)).collect()
 
 	splitIndex =int(len(companyPrices)*0.7)
 	splitIndex=splitIndex- numDays
@@ -146,7 +149,7 @@ def Plot():
 def main():
 	global stockData
 	global companyList
-
+	global sc
 
 	# read the tech sector data
 	ndxtdf = DataInput('dataset/NDAQ.csv')
@@ -155,16 +158,16 @@ def main():
 	ndxtDates=list(ndxtdf['Date'])
 
 	# we want to predict where it will be on the next day based on X days previous
-	numDaysArray = [5,20, 90,270] # day, week, month, quarter, year
-	numDayAheadArray=[1,5,20,90]
+	numDaysArray = [5,20,60,270] # day, week, month, quarter, year
+	numDayAheadArray=[1,5,20,60]
 
 	# iterate the company and days
 	for numDayIndex in numDaysArray:
 		for numDayStock in numDaysArray:
 			for daysAhead in numDayAheadArray:
 				print ('days Ahead: %d &  #days NASDAQ :%d  &  #days Stock %d' % (daysAhead,numDayIndex,numDayStock))
-				ndxtVolatilityArray = GetPriceVolatility(daysAhead,numDayStock, ndxtPrices)
-				ndxtMomentumArray = GetMomentum(daysAhead,numDayStock, ndxtPrices)
+				ndxtVolatilityArray =  sc.parallelize(GetPriceVolatility(daysAhead,numDayStock, ndxtPrices)).collect()
+				ndxtMomentumArray =  sc.parallelize(GetMomentum(daysAhead,numDayStock, ndxtPrices)).collect()
 				
 				for company in companyList:
 					print ('Company : '+company)

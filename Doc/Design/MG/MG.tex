@@ -139,16 +139,8 @@ initial input data.
 \item[\refstepcounter{acnum} \actheacnum \label{AC6}:] The implementation of the Price Momentum
 \item[\refstepcounter{acnum} \actheacnum \label{AC7}:] The implementation of the Prediction
 \item[\refstepcounter{acnum} \actheacnum \label{AC8}:] The format of the result output 
-\item[\refstepcounter{acnum} \actheacnum \label{AC9}:] The setting of the Spark platform
+\item[\refstepcounter{acnum} \actheacnum \label{AC9}:] The change of the distributed system
 \end{description}
-
-\wss{Your design is more specific to Spark than you likely need it to be.  There
-  are other big data processing frameworks and engines.  Why not design
-  generically with the data processing engine as an anticipate change.  You can
-  implement with the Spark ``module,'' but leave it open for change.
-  Technically for easier changeability you would have a generic interface in
-  your MIS, but for the purpose of your project, you can use the Spark
-  interface as your generic interface.}
 
 \subsection{Unlikely Changes} \label{SecUchange}
 
@@ -165,12 +157,7 @@ decisions will be changed.
 \item[\refstepcounter{ucnum} \uctheucnum \label{UC2}:] There will always be
 a source of input data external to the software.
 \item[\refstepcounter{ucnum} \uctheucnum \label{UC3}:] There will be another big
-  data platform to replace Spark \wss{As I mentioned above, it would be nice to
-    be more general.  However, you can make this an unlikely change if you want
-    to.  Just make sure that this is listed as a constraint in your SRS (I
-    haven't checked whether it is) and you should still include a module in your
-    design for the big data engine.  You can call the module Spark, if this is
-    an unlikely change.}
+  data platform to replace Spark
 \item[\refstepcounter{ucnum} \uctheucnum \label{UC4}:] The change of algorithm method
 \end{description}
 
@@ -198,24 +185,24 @@ actually be implemented.
 \centering
 \begin{tabular}{p{0.3\textwidth} p{0.6\textwidth}}
 \toprule
-\textbf{Level 1} & \textbf{Level 2}\\
+\textbf{Level 1} & \textbf{Level 2} \\
 \midrule
 
-{Hardware-Hiding Module} & ~ \\
+{Hardware-Hiding} & ~ \\
 \midrule
 
-\multirow{7}{0.3\textwidth}{Behaviour-Hiding Module}& Data Input Module\\
-& Kernelling Module\\ 
+
+\multirow{7}{0.3\textwidth}{Behaviour-Hiding Module}
+& Main Module\\
+& Data Input Module\\
 & Price Volatility Module\\
 & Price Momentum Module\\
-& Stock Prediction Module\\
-& Output Module\\
-& Spark Module\\
+& Prediction Module\\
 \midrule
 
 \multirow{1}{0.3\textwidth}{Software Decision Module} & Data Plot Module\\
-
-
+&Kernelling Module\\
+& RDD Module\\
 \bottomrule
 
 \end{tabular}
@@ -319,17 +306,15 @@ input module.
 \item[Implemented By:] [Stock Prediction System]
 \end{description}
 
-\subsubsection{Spark Module (\mref{mSpark})}
+\subsubsection{RDD Module (\mref{mSpark})}
 \begin{description}
-\item[Secrets:] Transfer data between driver and workers through RDD format
-  \wss{What is RDD format?  This should be expanded, and likely in your table of acronyms.}
+\item[Secrets:] Transfer data between driver and workers through RDD format into different worker machines and collect data from distributed RDD system back to the driver.
+
 \item[Services:] It provides a distributed system to separate the work from one
   single machine to a set of workers. Driver assigns the data from Input Module
   to its workers and workers will do the actual computation based on the data
-  and return the results to the driver. \wss{I like the description here better
-    than the corresponding AC where you said ``setting of the Spark platform.''
-    The anticipated change should be modified to be more like the secret of this
-    module.}
+  and return the results to the driver. 
+
 \item[Implemented By:] [Stock Prediction System]
 \end{description}
 
