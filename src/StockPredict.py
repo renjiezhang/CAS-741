@@ -7,7 +7,7 @@ import datetime
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 import pyspark
-
+import time
 # read the data
 def DataInput(filename):
 	dataSet = pandas.read_csv(filename)
@@ -150,7 +150,7 @@ def main():
 	global stockData
 	global companyList
 	global sc
-
+	start_time = time.time()
 	# read the tech sector data
 	ndxtdf = DataInput('dataset/NDAQ.csv')
 	ndxtdf = ndxtdf.sort_values(by='Date', ascending=True)
@@ -172,7 +172,7 @@ def main():
 				for company in companyList:
 					print ('Company : '+company)
 					Predict(company,daysAhead,numDayStock,ndxtVolatilityArray,ndxtMomentumArray)
-
+	print("--- %s seconds ---" % (time.time() - start_time))
 	Plot()
 if __name__ == "__main__": 
 	main()
