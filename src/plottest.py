@@ -9,17 +9,17 @@ import matplotlib.pyplot as plt
 
 
 # read the data
-def DataInput(filename):
-	dataSet = pandas.read_csv(filename)
-	return dataSet
+def DataInput(file_name):
+	data_set = pandas.read_csv(file_name)
+	return data_set
 
 startYear=2012
 endYear=2018
 companyList = ['AMZN','FB','GOOG','NFLX']
-companyDataSet=[]
+company_data_set=[]
 def Plot():
 	global companyList
-	global companyDataSet
+	global company_data_set
 	
 	years = mdates.YearLocator()   # every year
 	months = mdates.MonthLocator()  # every month
