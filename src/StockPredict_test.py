@@ -12,95 +12,108 @@ import matplotlib.pyplot as plt
 startYear=2012
 endYear=2018
 companyList = ['AMZN','FB','GOOG','NFLX']
-companyDataSet=[]
-
+company_data_set=[]
+TRANING_TESTING_RATIO=0.7
+def data_input(file_name):
+	data_set = pandas.read_csv(file_name)
+	return data_set
 # calculate price volatility array given company
-def GetPriceVolatility(daysAhead,numDays, priceArray):
+def get_price_volatility(days_ahead,numDays, priceArray):
 	# make price volatility array
-	volatilityArray = []
-	movingVolatilityArray = []
+	volatility_array = []
+	moving_volatility_array = []
 	for i in range(1, numDays+1):
-		percentChange = 100 * (priceArray[i] - priceArray[i-1]) / priceArray[i-1]
-		movingVolatilityArray.append(percentChange)
-	volatilityArray.append(np.mean(movingVolatilityArray))
-	for i in range(numDays + 1, len(priceArray) - daysAhead):
-		del movingVolatilityArray[0]
-		percentChange = 100 * (priceArray[i] - priceArray[i-1]) / priceArray[i-1]
-		movingVolatilityArray.append(percentChange)
-		volatilityArray.append(np.mean(movingVolatilityArray))
+		percent_change = 100 * (priceArray[i] - priceArray[i-1]) / priceArray[i-1]
+		moving_volatility_array.append(percent_change)
+	volatility_array.append(np.mean(moving_volatility_array))
+	for i in range(numDays + 1, len(priceArray) - days_ahead):
+		del moving_volatility_array[0]
+		percent_change = 100 * (priceArray[i] - priceArray[i-1]) / priceArray[i-1]
+		moving_volatility_array.append(percent_change)
+		volatility_array.append(np.mean(moving_volatility_array))
 
-	return volatilityArray
+	return volatility_array
 
 # calculate momentum array
-def GetMomentum(daysAhead,numDays, priceArray):
-	#global daysAhead
+def get_momentum(days_ahead,numDays, priceArray):
+	#global days_ahead
 	# now calculate momentum
-	momentumArray = []
-	movingMomentumArray = []
+	momentum_array = []
+	moving_momentum_array = []
 	for i in range(1, numDays + 1):
-		movingMomentumArray.append(1 if priceArray[i] > priceArray[i-1] else -1)
-	momentumArray.append(np.mean(movingMomentumArray))
-	for i in range(numDays+1, len(priceArray) - daysAhead):
-		del movingMomentumArray[0]
-		movingMomentumArray.append(1 if priceArray[i] > priceArray[i-1] else -1)
-		momentumArray.append(np.mean(movingMomentumArray))
+		moving_momentum_array.append(1 if priceArray[i] > priceArray[i-1] else -1)
+	momentum_array.append(np.mean(moving_momentum_array))
+	for i in range(numDays+1, len(priceArray) - days_ahead):
+		del moving_momentum_array[0]
+		moving_momentum_array.append(1 if priceArray[i] > priceArray[i-1] else -1)
+		momentum_array.append(np.mean(moving_momentum_array))
 
-	return momentumArray
+	return momentum_array
 
-def Predict(companyPrices,daysAhead, numDays, ndaqVolatility, ndaqMomentum):
-	global stockData
+def predict(company,days_ahead, numDays, ndaq_volatility, ndaq_momentum):
+	global stock_data
 	global sc
-
-	#global daysAhead
+	global TRANING_TESTING_RATIO
+	#global days_ahead
 	# get price volatility and momentum for this company
-	volatilityArray =  GetPriceVolatility(daysAhead,numDays, companyPrices)
-	momentumArray =  GetMomentum(daysAhead,numDays, companyPrices)
+	
+	company_data = data_input('dataset/'+company+'.csv')
+	company_data = company_data.sort_values(by='Date', ascending=True)
+	
+	#company_data_set.append(company_data)
+	company_prices = list(company_data['Close'])
+	company_dates= list(company_data['Date'])
+	volatility_array = get_price_volatility(days_ahead,numDays, company_prices)
+	momentum_array =  get_momentum(days_ahead,numDays, company_prices)
 
-	splitIndex =int(len(companyPrices)*0.7)
-	splitIndex=splitIndex- numDays
+	split_index =int(len(company_prices)*TRANING_TESTING_RATIO)
+	split_index=split_index- numDays
 
 	# since they are different lengths, find the min length
-	if len(volatilityArray) > len(ndaqVolatility):
-		difference = len(volatilityArray) - len(ndaqVolatility)
-		del volatilityArray[:difference]
-		del momentumArray[:difference]
+	if len(volatility_array) > len(ndaq_volatility):
+		difference = len(volatility_array) - len(ndaq_volatility)
+		del volatility_array[:difference]
+		del momentum_array[:difference]
 
-	elif len(ndaqVolatility) > len(volatilityArray):
-		difference = len(ndaqVolatility) - len(volatilityArray)
-		del ndaqVolatility[:difference]
-		del ndaqMomentum[:difference]
+	elif len(ndaq_volatility) > len(volatility_array):
+		difference = len(ndaq_volatility) - len(volatility_array)
+		del ndaq_volatility[:difference]
+		del ndaq_momentum[:difference]
 
 	# create the feature vectors X
-	featureX = np.transpose(np.array([volatilityArray, momentumArray, ndaqVolatility, ndaqMomentum]))
+	feature_x = np.transpose(np.array([volatility_array, momentum_array, ndaq_volatility, ndaq_momentum]))
 
 	# create the feature vectors Y
-	featureY = []
-	for i in range(numDays, len(companyPrices) - daysAhead):
-		featureY.append(1 if companyPrices[i+daysAhead] > companyPrices[i] else -1)
+	feature_y = []
+	for i in range(numDays, len(company_prices) - days_ahead):
+		feature_y.append(1 if company_prices[i+days_ahead] > company_prices[i] else -1)
 
 	# fix the length of Y if necessary
-	if len(featureY) > len(featureX):
-		difference = len(featureY) - len(featureX)
-		del featureY[:difference]
+	if len(feature_y) > len(feature_x):
+		difference = len(feature_y) - len(feature_x)
+		del feature_y[:difference]
 
 	# split into training and testing sets, 70% for training and 30% for testing
-	X_train = np.array(featureX[0:splitIndex]).astype('float64')
-	X_test = np.array(featureX[splitIndex:]).astype('float64')
-	y_train = np.array(featureY[0:splitIndex]).astype('float64')
-	y_test = np.array(featureY[splitIndex:]).astype('float64')
+	X_train = np.array(feature_x[0:split_index]).astype('float64')
+	X_test = np.array(feature_x[split_index:]).astype('float64')
+	y_train = np.array(feature_y[0:split_index]).astype('float64')
+	y_test = np.array(feature_y[split_index:]).astype('float64')
 
 	# fit the model and calculate its accuracy
 	rbf_svm = SVC(kernel='rbf')
 	rbf_svm.fit(X_train, y_train)
 	score = rbf_svm.score(X_test, y_test)
 	print ('Accuracy : %f',(score))
-	print('Result : %d ', (rbf_svm.predict([featureX[-1]])))
+	print('Result : %d ', (rbf_svm.predict([feature_x[-1]])))
 	return score
 	
 def main():
-	companyPrices=[1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000]
-	ndxtVolatilityArray=[8.45, 7.78, 7.217, 6.72, 6.299]
-	ndxtMomentumArray=[1.0, 1.0, 1.0, 1.0, 1.0]
-	Predict(companyPrices,daysAhead,numDayStock,ndxtVolatilityArray,ndxtMomentumArray)
+	ndxtdf = data_input('dataset/NDAQ.csv')
+	ndxtdf = ndxtdf.sort_values(by='Date', ascending=True)
+	ndxt_prices = list(ndxtdf['Close'])
+	ndxt_volatility_array =  get_price_volatility(1,5, ndxt_prices)
+	ndxt_momentum_array =  get_momentum(1,5, ndxt_prices)
+	result=predict('GOOG',1,5,ndxt_volatility_array,ndxt_momentum_array)
+	print(result)
 if __name__ == "__main__": 
 	main()
