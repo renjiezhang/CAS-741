@@ -13,12 +13,12 @@ def DataInput(file_name):
 	data_set = pandas.read_csv(file_name)
 	return data_set
 
-startYear=2012
-endYear=2018
-companyList = ['AMZN','FB','GOOG','NFLX']
+START_YEAR=2012
+END_YEAR=2018
+COMPANY_LIST = ['AMZN','FB','GOOG','NFLX']
 company_data_set=[]
 def Plot():
-	global companyList
+	global COMPANY_LIST
 	global company_data_set
 	
 	years = mdates.YearLocator()   # every year
@@ -26,12 +26,12 @@ def Plot():
 	yearsFmt = mdates.DateFormatter('%Y')	
 	fig, ax = plt.subplots()
 	
-	for company in companyList:
-		companyData=DataInput('dataset/'+company+'.csv')
-		dateList=list(companyData['Date'])
-		prices=list(companyData['Close'])
+	for company in COMPANY_LIST:
+		company_data=data_input('dataset/'+company+'.csv')
+		date_list=list(company_data['Date'])
+		prices=list(company_data['Close'])
 		dates=[]
-		for dat in dateList:
+		for dat in date_list:
 			dates.append(datetime.datetime.strptime(dat, "%Y-%m-%d"))	
 		ax.plot(dates, prices,label=company)	
 		
@@ -42,8 +42,8 @@ def Plot():
 	ax.xaxis.set_minor_locator(months)
 	plt.xlabel('Date')
 	plt.ylabel('Price')	
-	datemin = datetime.date(startYear, 11, 1)
-	datemax = datetime.date(endYear, 2, 1)
+	datemin = datetime.date(START_YEAR, 11, 1)
+	datemax = datetime.date(END_YEAR, 2, 1)
 	ax.set_xlim(datemin, datemax)
 	ax.format_xdata = mdates.DateFormatter('%Y-%m-%d')
 	
