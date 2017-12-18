@@ -214,7 +214,7 @@ The performance of 5 years dataset file with 4 types of prediction dates is abou
 The performance result is on the result.txt
 \section{Comparison to Existing Implementation} 
 
-The test on multiple spark workers are removed due to the limit time because I have encountered some problems with configuration of multiple Docker containers. The system for now is on a single node spark machine.
+The test on multiple spark workers was not implemented but the source code has been changed to Spark based. I have encountered some problems with configuration of multiple Docker containers and I don't have enough time to solve the problem. The system for now is on a single node Spark worker.
 
 \section{Unit Testing}
 
@@ -257,8 +257,8 @@ The result of the unit test is shown as the screen shot:
 \end{enumerate} 
 
 \section{Changes Due to Testing}
-Change some variables from hard coding values to constant\\
-Change function calls to be more flexible \\
+Since the kernelling function K is given by the library, the T2 of kernelling function is removed from SRS\\
+Plot module was moved from software decision model to behavior-hiding module because the x ray has been customized to display by years not days. 
 
 \section{Automated Testing}
 NA
