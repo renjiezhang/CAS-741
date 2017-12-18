@@ -5,3 +5,4 @@ plottest.py--the file for plot test
 sparktest.py--the file for spark test
 svmunittest.py--for the unit tests of volatility, momentum and predict
 result.txt--the output of the stockpredict.py
+Installation Instruction.pdf-- the instruction documentation, please follow it to setup the environment
