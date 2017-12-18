@@ -1,0 +1,6 @@
+StockPredict.py --the file of the prediction system
+StockPredict_test.py --for unit test
+fileload_test.py -- the file for file load
+plottest.py--the file for plot test
+sparktest.py--the file for spark test
+svmunittest.py--for the unit tests of volatility, momentum and predict
