@@ -1,0 +1,458 @@
+\documentclass[12pt, titlepage]{article}
+
+\usepackage{amsmath, mathtools}
+
+\usepackage[round]{natbib}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{colortbl}
+\usepackage{xr}
+\usepackage{hyperref}
+\usepackage{longtable}
+\usepackage{xfrac}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage[section]{placeins}
+\usepackage{caption}
+\usepackage{fullpage}
+\hypersetup{
+bookmarks=true, % show bookmarks bar?
+colorlinks=true, % false: boxed links; true: colored links
+linkcolor=red, % color of internal links (change box color with linkbordercolor)
+citecolor=blue, % color of links to bibliography
+filecolor=magenta, % color of file links
+urlcolor=cyan % color of external links
+}
+
+\usepackage{array}
+
+\input{../../Comments}
+\newcounter{mnum}
+\newcommand{\mthemnum}{M\themnum}
+\newcommand{\mref}[1]{M\ref{#1}}
+
+\newcommand{\progname}{Stock Prediction System}
+
+\begin{document}
+
+\title{Module Interface Specification for Stock Prediction System}
+
+\author{Renjie Zhang}
+
+\date{\today}
+
+\maketitle
+
+\pagenumbering{roman}
+
+\section{Revision History}
+
+\begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
+\toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
+\midrule
+22/11/2017 & 1.0 & Create\\
+28/11/2017 & 1.1 & Update\\
+16/12/2017 & 1.2 & Update\\
+\bottomrule
+\end{tabularx}
+
+~\newpage
+
+\section{Symbols, Abbreviations and Acronyms}
+
+NA
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\pagenumbering{arabic}
+
+\section{Introduction}
+
+The following document details the Module Interface Specifications for
+Stock Prediction System which is used to predict the future stock price based on the historical data. Complementary documents include the System Requirement Specifications
+and Module Guide. The full documentation and implementation can be
+found at \url{https://github.com/renjiezhang/CAS-741}.\\
+
+\section{Notation}
+
+The structure of the MIS for modules comes from \citet{HoffmanAndStrooper1995},
+with the addition that template modules have been adapted from
+\cite{GhezziEtAl2003}. The mathematical notation comes from Chapter 3 of
+\citet{HoffmanAndStrooper1995}. For instance, the symbol := is used for a
+multiple assignment statement and conditional rules follow the form $(c_1
+\Rightarrow r_1 | c_2 \Rightarrow r_2 | ... | c_n \Rightarrow r_n )$.
+
+The following table summarizes the primitive data types used by \progname. 
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\noindent 
+\begin{tabular}{l l p{7.5cm}} 
+\toprule 
+\textbf{Data Type} & \textbf{Notation} & \textbf{Description}\\ 
+\midrule
+character & char & a single symbol or digit\\
+integer & $\mathbb{Z}$ & a number without a fractional component in (-$\infty$, $\infty$) \\
+natural number & $\mathbb{N}$ & a number without a fractional component in [1, $\infty$) \\
+real & $\mathbb{R}$ & any number in (-$\infty$, $\infty$)\\
+List &list & a list of objects\\
+Stock Record & record & a Record has two elements a date by string and a price by real number\\
+Date &date & a date type with format yyyy-mm-dd\\
+\bottomrule
+\end{tabular} 
+\end{center}
+
+\noindent
+The specification of \progname \ uses some derived data types: sequences, strings, and
+tuples. Sequences are lists filled with elements of the same data type. Strings
+are sequences of characters. Tuples contain a list of values, potentially of
+different types. In addition, \progname \ uses functions, which
+are defined by the data types of their inputs and outputs. Local functions are
+described by giving their type signature followed by their specification.
+
+\section{Module Decomposition}
+
+The following table is taken directly from the Module Guide document for this project.
+
+\begin{description}
+\item [\refstepcounter{mnum} \mthemnum \label{mHH}:] Hardware-Hiding Module
+\item [\refstepcounter{mnum} \mthemnum \label{mMain}:]Main Module
+\item [\refstepcounter{mnum} \mthemnum \label{mInput}:] Data Input Module
+\item [\refstepcounter{mnum} \mthemnum \label{mVolatility}:] Price Volatility Module
+\item [\refstepcounter{mnum} \mthemnum \label{mMomentum}:] Price Momentum Module
+\item [\refstepcounter{mnum} \mthemnum \label{mPrediction}:]Prediction Module
+\item [\refstepcounter{mnum} \mthemnum \label{mKernelling}:]Kernelling Module
+\item [\refstepcounter{mnum} \mthemnum \label{mPlot}:] Plot Module
+\item [\refstepcounter{mnum} \mthemnum \label{mRDD}:]  RDD Module
+\end{description}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{p{0.3\textwidth} p{0.6\textwidth}}
+\toprule
+\textbf{Level 1} & \textbf{Level 2} \\
+\midrule
+
+{Hardware-Hiding} & ~ \\
+\midrule
+
+
+\multirow{7}{0.3\textwidth}{Behaviour-Hiding Module}
+& Main Module\\
+& Data Input Module\\
+& Price Volatility Module\\
+& Price Momentum Module\\
+& Prediction Module\\
+\midrule
+
+\multirow{1}{0.3\textwidth}{Software Decision Module} & Data Plot Module\\
+&Kernelling Module\\
+& RDD Module\\
+\bottomrule
+
+\end{tabular}
+\caption{Module Hierarchy}
+\label{TblMH}
+\end{table}
+
+\newpage
+~\newpage
+
+\section{MIS of Main Module (\mref{mMain}) } 
+
+\subsection{Module}
+Main
+\subsection{Uses}
+Hardware-Hiding Module (\mref{mHH})
+
+\subsection{Syntax}
+NA
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{p{2cm} p{4cm} p{4cm} p{2cm}}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+
+main & - &- & - \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+\subsubsection{State Variables}
+NA
+\subsubsection{Enviroment Variables}
+ndxtPrices: list of real numbers
+ndxtDates: list of dates
+numDaysArray : list of integers
+numDayAheadArray : list of integers
+\subsubsection{Access Routine Semantics}
+
+\noindent main():
+\begin{itemize}
+\item transition: Calls the Data Input Modules, Volatility Module, Momentum Module and Predict Module with parameters and retrieve the returned data from them. \\
+-DataInput(filePath)\\
+-ndxtVolatilityArray = sc.parallelize(GetPriceVolatility(daysAhead,numDayStock, ndxtPrices)).collect()\\ 
+-ndxtMomentumArray = sc.parallelize(GetMomentum(daysAhead,numDayStock, ndxtPrices)).collect()\\
+-Predict(company,daysAhead,numDayStock,ndxtVolatilityArray,ndxtMomentumArray)
+\item output: NA
+\item exception: NA
+\end{itemize}
+
+~\newpage
+
+\section{MIS of Data Input Module (\mref{mInput}) } 
+
+\subsection{Module}
+Input Module
+\subsection{Uses}
+Main Module (\mref{mMain})
+\subsection{Syntax}
+
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{p{2cm} p{4cm} p{4cm} p{2cm}}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+
+ReadCSV & string & record list & IOError \\
+\hline
+\end{tabular}
+\end{center}
+
+
+\subsection{Semantics}
+\subsubsection{State Variables}
+NA
+\subsubsection{Environment Variables}
+dataSet : record list
+\subsubsection{Access Routine Semantics}
+
+\noindent ReadCSV():
+\begin{itemize}
+\item transition: NA
+\item output: A record list of the date and price 
+\item exception: \\
+-IOError: Invalid file name and path. Invalid column name and data format
+in the file. 
+\end{itemize}
+
+~\newpage
+
+
+\section{MIS of Price Volatility Module (\mref{mVolatility}) } 
+
+\subsection{Module}
+Volatility Module
+\subsection{Uses}
+Data Input Module (\mref{mInput})
+~\newline
+Main Module (\mref{mMain})
+~\newline
+ RDD Module (\mref{mRDD})
+\subsection{Syntax}
+
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{p{4cm} p{2cm} p{2cm} p{4cm}}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+
+GetPriceVolatility & $\mathbb{R}^n$ ,$\mathbb{N}^n$ & $\mathbb{R}^n$ & NotFittedError \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+\subsubsection{State Variables}
+NA
+
+\subsubsection{Access Routine Semantics}
+
+\noindent GetPriceVolatility():
+\begin{itemize}
+\item transition: NA
+\item output: \\
+volatilityArray: A list of real numbers represents the price volatility
+\item exception:
+~\newline
+NotFittedError : Improper price such as negative number.
+\end{itemize}
+
+~\newpage
+
+\section{MIS of Price Momentum Module (\mref{mMomentum}) } 
+
+\subsection{Module}
+Momentum Module
+\subsection{Uses}
+Data Input Module (\mref{mInput})
+~\newline
+Main Module (\mref{mMain})
+~\newline
+RDD Module (\mref{mRDD})
+\subsection{Syntax}
+
+
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{p{4cm} p{2cm} p{2cm} p{4cm}}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+
+GetPriceMomentum & $\mathbb{R}^n$ ,$\mathbb{N}^n$ & $\mathbb{R}^n$ & NotFittedError \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+\subsubsection{State Variables}
+NA
+
+\subsubsection{Access Routine Semantics}
+
+\noindent GetPriceMomentum():
+\begin{itemize}
+\item transition: NA
+\item output:\\
+momentumArray : A list of real number for the price momentum
+\item exception:
+~\newline
+NotFittedError : Improper price such as negative number.
+\end{itemize}
+
+~\newpage
+\section{MIS of Prediction Module (\mref{mPrediction}) } 
+
+\subsection{Module}
+Predict Module
+\subsection{Uses}
+Data Input Module (\mref{mInput})
+~\newline
+Main Module (\mref{mMain})
+~\newline
+Volatility Module(\mref{mVolatility})
+~\newline
+Momentum Module(\mref{mMomentum})
+~\newline
+Kernelling Module(\mref{mKernelling})
+~\newline
+RDD Module(\mref{mRDD})
+
+\subsection{Syntax}
+
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{p{2cm} p{4cm} p{2cm} p{2cm}}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+
+Predict & string, $\mathbb{R}^n$ ,$\mathbb{N}^n$ & $\mathbb{R}$ &- \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+\subsubsection{State Variables}
+NA
+\subsubsection{Environment Variables}
+Predict()
+
+~\newline
+volatilityArray: A list of real numbers for the price volatility list calculated from the Price Volatility Model\\
+~\newline
+momentumArray: A list of real numbers for the price momentum list calculated from the Price Momentum Model\\
+~\newline
+featureX: A list of array which consists four real number elements : price volatility, price momentum, index volatility and index momentum\\ 
+~\newline
+featureY: A list of integers (1 or -1)\\ 
+~\newline
+Kernel mode: kernel='rbf
+\subsubsection{Access Routine Semantics}
+
+\noindent Predict():
+\begin{itemize}
+\item transition: NA
+\item output:\\
+score :A real number for the percentage of the possibility
+\item exception: NA
+\end{itemize}
+
+~\newpage
+
+\section{MIS of Plot Module (\mref{mPlot}) } 
+
+\subsection{Module}
+Plot Module
+\subsection{Uses}
+Data Input Module (\mref{mInput})
+~\newline
+Main Module (\mref{mMain})
+\subsection{Syntax}
+
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{p{2cm} p{4cm} p{2cm} p{2cm}}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+
+Plot & char, $\mathbb{R}^n$ &- &- \\
+
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+\subsubsection{State Variables}
+Dates: The array of the dates of each record\\ 
+~\newline
+Prices: The array of the prices of each record
+
+\subsection{Semantics}
+\subsubsection{Enviroment Variables}
+Dates: The array of the dates of each record\\ 
+~\newline
+Prices: The array of the real number for the prices of each record\\ 
+\subsubsection{Access Routine Semantics}
+
+\noindent Plot():
+\begin{itemize}
+\item transition: NA
+\item output: NA
+\item exception: NA
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+\subsection{Reference}
+\bibliographystyle {plainnat}
+\bibliography {../../../ReferenceMaterial/References}
+
+Modeling high-frequency limit order book dynamics with support vector machines PDF 2013
+~\newline
+Predicting Stock Price Direction using Support Vector Machines PDF 2015
+
+
+\end{document}
+

@@ -1,0 +1,833 @@
+days Ahead: 1 &  #days NASDAQ :5  &  #days Stock 5
+Company : AMZN
+Accuracy : %f 0.557029177719
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.559681697613
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.496021220159
+Result : %d  [-1.]
+Company : NFLX
+Accuracy : %f 0.511936339523
+Result : %d  [ 1.]
+days Ahead: 5 &  #days NASDAQ :5  &  #days Stock 5
+Company : AMZN
+Accuracy : %f 0.611260053619
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.595174262735
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.584450402145
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.565683646113
+Result : %d  [ 1.]
+days Ahead: 20 &  #days NASDAQ :5  &  #days Stock 5
+Company : AMZN
+Accuracy : %f 0.759776536313
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.768156424581
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.709497206704
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.712290502793
+Result : %d  [ 1.]
+days Ahead: 60 &  #days NASDAQ :5  &  #days Stock 5
+Company : AMZN
+Accuracy : %f 0.707547169811
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.827044025157
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.814465408805
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.981132075472
+Result : %d  [ 1.]
+days Ahead: 1 &  #days NASDAQ :5  &  #days Stock 20
+Company : AMZN
+Accuracy : %f 0.554376657825
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.546419098143
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.511936339523
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.419098143236
+Result : %d  [ 1.]
+days Ahead: 5 &  #days NASDAQ :5  &  #days Stock 20
+Company : AMZN
+Accuracy : %f 0.611260053619
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.600536193029
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.595174262735
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.57908847185
+Result : %d  [ 1.]
+days Ahead: 20 &  #days NASDAQ :5  &  #days Stock 20
+Company : AMZN
+Accuracy : %f 0.759776536313
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.768156424581
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.709497206704
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.715083798883
+Result : %d  [ 1.]
+days Ahead: 60 &  #days NASDAQ :5  &  #days Stock 20
+Company : AMZN
+Accuracy : %f 0.707547169811
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.827044025157
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.814465408805
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.981132075472
+Result : %d  [ 1.]
+days Ahead: 1 &  #days NASDAQ :5  &  #days Stock 60
+Company : AMZN
+Accuracy : %f 0.554376657825
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.546419098143
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.498673740053
+Result : %d  [-1.]
+Company : NFLX
+Accuracy : %f 0.53050397878
+Result : %d  [-1.]
+days Ahead: 5 &  #days NASDAQ :5  &  #days Stock 60
+Company : AMZN
+Accuracy : %f 0.611260053619
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.600536193029
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.595174262735
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.587131367292
+Result : %d  [ 1.]
+days Ahead: 20 &  #days NASDAQ :5  &  #days Stock 60
+Company : AMZN
+Accuracy : %f 0.759776536313
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.768156424581
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.712290502793
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.715083798883
+Result : %d  [ 1.]
+days Ahead: 60 &  #days NASDAQ :5  &  #days Stock 60
+Company : AMZN
+Accuracy : %f 0.707547169811
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.827044025157
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.830188679245
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.981132075472
+Result : %d  [ 1.]
+days Ahead: 1 &  #days NASDAQ :5  &  #days Stock 270
+Company : AMZN
+Accuracy : %f 0.554376657825
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.546419098143
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.490716180371
+Result : %d  [-1.]
+Company : NFLX
+Accuracy : %f 0.485411140584
+Result : %d  [-1.]
+days Ahead: 5 &  #days NASDAQ :5  &  #days Stock 270
+Company : AMZN
+Accuracy : %f 0.611260053619
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.600536193029
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.595174262735
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.587131367292
+Result : %d  [ 1.]
+days Ahead: 20 &  #days NASDAQ :5  &  #days Stock 270
+Company : AMZN
+Accuracy : %f 0.759776536313
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.768156424581
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.709497206704
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.715083798883
+Result : %d  [ 1.]
+days Ahead: 60 &  #days NASDAQ :5  &  #days Stock 270
+Company : AMZN
+Accuracy : %f 0.707547169811
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.827044025157
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.814465408805
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.981132075472
+Result : %d  [ 1.]
+days Ahead: 1 &  #days NASDAQ :20  &  #days Stock 5
+Company : AMZN
+Accuracy : %f 0.557029177719
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.559681697613
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.496021220159
+Result : %d  [-1.]
+Company : NFLX
+Accuracy : %f 0.511936339523
+Result : %d  [ 1.]
+days Ahead: 5 &  #days NASDAQ :20  &  #days Stock 5
+Company : AMZN
+Accuracy : %f 0.611260053619
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.595174262735
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.584450402145
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.565683646113
+Result : %d  [ 1.]
+days Ahead: 20 &  #days NASDAQ :20  &  #days Stock 5
+Company : AMZN
+Accuracy : %f 0.759776536313
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.768156424581
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.709497206704
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.712290502793
+Result : %d  [ 1.]
+days Ahead: 60 &  #days NASDAQ :20  &  #days Stock 5
+Company : AMZN
+Accuracy : %f 0.707547169811
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.827044025157
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.814465408805
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.981132075472
+Result : %d  [ 1.]
+days Ahead: 1 &  #days NASDAQ :20  &  #days Stock 20
+Company : AMZN
+Accuracy : %f 0.554376657825
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.546419098143
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.511936339523
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.419098143236
+Result : %d  [ 1.]
+days Ahead: 5 &  #days NASDAQ :20  &  #days Stock 20
+Company : AMZN
+Accuracy : %f 0.611260053619
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.600536193029
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.595174262735
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.57908847185
+Result : %d  [ 1.]
+days Ahead: 20 &  #days NASDAQ :20  &  #days Stock 20
+Company : AMZN
+Accuracy : %f 0.759776536313
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.768156424581
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.709497206704
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.715083798883
+Result : %d  [ 1.]
+days Ahead: 60 &  #days NASDAQ :20  &  #days Stock 20
+Company : AMZN
+Accuracy : %f 0.707547169811
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.827044025157
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.814465408805
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.981132075472
+Result : %d  [ 1.]
+days Ahead: 1 &  #days NASDAQ :20  &  #days Stock 60
+Company : AMZN
+Accuracy : %f 0.554376657825
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.546419098143
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.498673740053
+Result : %d  [-1.]
+Company : NFLX
+Accuracy : %f 0.53050397878
+Result : %d  [-1.]
+days Ahead: 5 &  #days NASDAQ :20  &  #days Stock 60
+Company : AMZN
+Accuracy : %f 0.611260053619
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.600536193029
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.595174262735
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.587131367292
+Result : %d  [ 1.]
+days Ahead: 20 &  #days NASDAQ :20  &  #days Stock 60
+Company : AMZN
+Accuracy : %f 0.759776536313
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.768156424581
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.712290502793
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.715083798883
+Result : %d  [ 1.]
+days Ahead: 60 &  #days NASDAQ :20  &  #days Stock 60
+Company : AMZN
+Accuracy : %f 0.707547169811
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.827044025157
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.830188679245
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.981132075472
+Result : %d  [ 1.]
+days Ahead: 1 &  #days NASDAQ :20  &  #days Stock 270
+Company : AMZN
+Accuracy : %f 0.554376657825
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.546419098143
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.490716180371
+Result : %d  [-1.]
+Company : NFLX
+Accuracy : %f 0.485411140584
+Result : %d  [-1.]
+days Ahead: 5 &  #days NASDAQ :20  &  #days Stock 270
+Company : AMZN
+Accuracy : %f 0.611260053619
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.600536193029
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.595174262735
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.587131367292
+Result : %d  [ 1.]
+days Ahead: 20 &  #days NASDAQ :20  &  #days Stock 270
+Company : AMZN
+Accuracy : %f 0.759776536313
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.768156424581
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.709497206704
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.715083798883
+Result : %d  [ 1.]
+days Ahead: 60 &  #days NASDAQ :20  &  #days Stock 270
+Company : AMZN
+Accuracy : %f 0.707547169811
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.827044025157
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.814465408805
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.981132075472
+Result : %d  [ 1.]
+days Ahead: 1 &  #days NASDAQ :60  &  #days Stock 5
+Company : AMZN
+Accuracy : %f 0.557029177719
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.559681697613
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.496021220159
+Result : %d  [-1.]
+Company : NFLX
+Accuracy : %f 0.511936339523
+Result : %d  [ 1.]
+days Ahead: 5 &  #days NASDAQ :60  &  #days Stock 5
+Company : AMZN
+Accuracy : %f 0.611260053619
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.595174262735
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.584450402145
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.565683646113
+Result : %d  [ 1.]
+days Ahead: 20 &  #days NASDAQ :60  &  #days Stock 5
+Company : AMZN
+Accuracy : %f 0.759776536313
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.768156424581
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.709497206704
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.712290502793
+Result : %d  [ 1.]
+days Ahead: 60 &  #days NASDAQ :60  &  #days Stock 5
+Company : AMZN
+Accuracy : %f 0.707547169811
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.827044025157
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.814465408805
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.981132075472
+Result : %d  [ 1.]
+days Ahead: 1 &  #days NASDAQ :60  &  #days Stock 20
+Company : AMZN
+Accuracy : %f 0.554376657825
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.546419098143
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.511936339523
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.419098143236
+Result : %d  [ 1.]
+days Ahead: 5 &  #days NASDAQ :60  &  #days Stock 20
+Company : AMZN
+Accuracy : %f 0.611260053619
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.600536193029
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.595174262735
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.57908847185
+Result : %d  [ 1.]
+days Ahead: 20 &  #days NASDAQ :60  &  #days Stock 20
+Company : AMZN
+Accuracy : %f 0.759776536313
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.768156424581
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.709497206704
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.715083798883
+Result : %d  [ 1.]
+days Ahead: 60 &  #days NASDAQ :60  &  #days Stock 20
+Company : AMZN
+Accuracy : %f 0.707547169811
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.827044025157
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.814465408805
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.981132075472
+Result : %d  [ 1.]
+days Ahead: 1 &  #days NASDAQ :60  &  #days Stock 60
+Company : AMZN
+Accuracy : %f 0.554376657825
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.546419098143
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.498673740053
+Result : %d  [-1.]
+Company : NFLX
+Accuracy : %f 0.53050397878
+Result : %d  [-1.]
+days Ahead: 5 &  #days NASDAQ :60  &  #days Stock 60
+Company : AMZN
+Accuracy : %f 0.611260053619
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.600536193029
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.595174262735
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.587131367292
+Result : %d  [ 1.]
+days Ahead: 20 &  #days NASDAQ :60  &  #days Stock 60
+Company : AMZN
+Accuracy : %f 0.759776536313
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.768156424581
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.712290502793
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.715083798883
+Result : %d  [ 1.]
+days Ahead: 60 &  #days NASDAQ :60  &  #days Stock 60
+Company : AMZN
+Accuracy : %f 0.707547169811
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.827044025157
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.830188679245
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.981132075472
+Result : %d  [ 1.]
+days Ahead: 1 &  #days NASDAQ :60  &  #days Stock 270
+Company : AMZN
+Accuracy : %f 0.554376657825
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.546419098143
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.490716180371
+Result : %d  [-1.]
+Company : NFLX
+Accuracy : %f 0.485411140584
+Result : %d  [-1.]
+days Ahead: 5 &  #days NASDAQ :60  &  #days Stock 270
+Company : AMZN
+Accuracy : %f 0.611260053619
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.600536193029
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.595174262735
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.587131367292
+Result : %d  [ 1.]
+days Ahead: 20 &  #days NASDAQ :60  &  #days Stock 270
+Company : AMZN
+Accuracy : %f 0.759776536313
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.768156424581
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.709497206704
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.715083798883
+Result : %d  [ 1.]
+days Ahead: 60 &  #days NASDAQ :60  &  #days Stock 270
+Company : AMZN
+Accuracy : %f 0.707547169811
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.827044025157
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.814465408805
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.981132075472
+Result : %d  [ 1.]
+days Ahead: 1 &  #days NASDAQ :270  &  #days Stock 5
+Company : AMZN
+Accuracy : %f 0.557029177719
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.559681697613
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.496021220159
+Result : %d  [-1.]
+Company : NFLX
+Accuracy : %f 0.511936339523
+Result : %d  [ 1.]
+days Ahead: 5 &  #days NASDAQ :270  &  #days Stock 5
+Company : AMZN
+Accuracy : %f 0.611260053619
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.595174262735
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.584450402145
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.565683646113
+Result : %d  [ 1.]
+days Ahead: 20 &  #days NASDAQ :270  &  #days Stock 5
+Company : AMZN
+Accuracy : %f 0.759776536313
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.768156424581
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.709497206704
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.712290502793
+Result : %d  [ 1.]
+days Ahead: 60 &  #days NASDAQ :270  &  #days Stock 5
+Company : AMZN
+Accuracy : %f 0.707547169811
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.827044025157
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.814465408805
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.981132075472
+Result : %d  [ 1.]
+days Ahead: 1 &  #days NASDAQ :270  &  #days Stock 20
+Company : AMZN
+Accuracy : %f 0.554376657825
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.546419098143
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.511936339523
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.419098143236
+Result : %d  [ 1.]
+days Ahead: 5 &  #days NASDAQ :270  &  #days Stock 20
+Company : AMZN
+Accuracy : %f 0.611260053619
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.600536193029
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.595174262735
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.57908847185
+Result : %d  [ 1.]
+days Ahead: 20 &  #days NASDAQ :270  &  #days Stock 20
+Company : AMZN
+Accuracy : %f 0.759776536313
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.768156424581
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.709497206704
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.715083798883
+Result : %d  [ 1.]
+days Ahead: 60 &  #days NASDAQ :270  &  #days Stock 20
+Company : AMZN
+Accuracy : %f 0.707547169811
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.827044025157
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.814465408805
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.981132075472
+Result : %d  [ 1.]
+days Ahead: 1 &  #days NASDAQ :270  &  #days Stock 60
+Company : AMZN
+Accuracy : %f 0.554376657825
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.546419098143
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.498673740053
+Result : %d  [-1.]
+Company : NFLX
+Accuracy : %f 0.53050397878
+Result : %d  [-1.]
+days Ahead: 5 &  #days NASDAQ :270  &  #days Stock 60
+Company : AMZN
+Accuracy : %f 0.611260053619
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.600536193029
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.595174262735
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.587131367292
+Result : %d  [ 1.]
+days Ahead: 20 &  #days NASDAQ :270  &  #days Stock 60
+Company : AMZN
+Accuracy : %f 0.759776536313
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.768156424581
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.712290502793
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.715083798883
+Result : %d  [ 1.]
+days Ahead: 60 &  #days NASDAQ :270  &  #days Stock 60
+Company : AMZN
+Accuracy : %f 0.707547169811
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.827044025157
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.830188679245
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.981132075472
+Result : %d  [ 1.]
+days Ahead: 1 &  #days NASDAQ :270  &  #days Stock 270
+Company : AMZN
+Accuracy : %f 0.554376657825
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.546419098143
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.490716180371
+Result : %d  [-1.]
+Company : NFLX
+Accuracy : %f 0.485411140584
+Result : %d  [-1.]
+days Ahead: 5 &  #days NASDAQ :270  &  #days Stock 270
+Company : AMZN
+Accuracy : %f 0.611260053619
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.600536193029
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.595174262735
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.587131367292
+Result : %d  [ 1.]
+days Ahead: 20 &  #days NASDAQ :270  &  #days Stock 270
+Company : AMZN
+Accuracy : %f 0.759776536313
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.768156424581
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.709497206704
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.715083798883
+Result : %d  [ 1.]
+days Ahead: 60 &  #days NASDAQ :270  &  #days Stock 270
+Company : AMZN
+Accuracy : %f 0.707547169811
+Result : %d  [ 1.]
+Company : FB
+Accuracy : %f 0.827044025157
+Result : %d  [ 1.]
+Company : GOOG
+Accuracy : %f 0.814465408805
+Result : %d  [ 1.]
+Company : NFLX
+Accuracy : %f 0.981132075472
+Result : %d  [ 1.]
+--- 37.78605628013611 seconds ---
